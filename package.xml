@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>agri_resources</name>
+    <version>0.1.0</version>
+    <description>The agri_resources package</description>
+    <maintainer email="trba-support@robotics.tokyo">Tokyo Robotics Inc.</maintainer>
+    <author email="sato@robotics.tokyo">Takashi Sato</author>
+    <license>TODO</license>
+    <url type="website">https://robotics.tokyo/</url>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <exec_depend>urdf</exec_depend>
+    <exec_depend>xacro</exec_depend>
+
+    <export>
+    </export>
+</package>
