@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version="1.6">
-  <model name="drone0">
+  <model name="drone_0">
     <include>
       <uri>model://iris_base</uri>
     </include>
@@ -408,7 +408,7 @@
     </frame>
     <frame name='camera_bottom_screw_frame' attached_to='camera_joint'/>
 
-    <plugin name='camera' filename='librealsense_gazebo_plugin.so'>
+    <plugin name='drone_0' filename='librealsense_gazebo_plugin.so'>
       <prefix>camera</prefix>
       <depthUpdateRate>30.0</depthUpdateRate>
       <colorUpdateRate>30.0</colorUpdateRate>
@@ -428,7 +428,6 @@
       <rangeMinDepth>0.2</rangeMinDepth>
       <rangeMaxDepth>10.0</rangeMaxDepth>
       <pointCloud>1</pointCloud>
-      <!-- <pointCloudTopicName>/drone_0_pcl_render_node/cloud</pointCloudTopicName> -->
       <pointCloudTopicName>dummy_pointcloud</pointCloudTopicName>
       <pointCloudCutoff>0.25</pointCloudCutoff>
       <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
