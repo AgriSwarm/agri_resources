@@ -1,7 +1,7 @@
 %YAML:1.0
 
 #common parameters
-imu_topic: "/cf231/imu"
+imu_topic: "/drone_0_cf/imu"
 image_topic: "/drone_0/color/image_raw"
 output_path: "/home/torobo/catkin_ws/output/"
 
@@ -11,15 +11,16 @@ camera_name: camera
 image_width: 640
 image_height: 480
 distortion_parameters:
-   k1: -0.56136422
-   k2: -0.26225089
-   p1: 0.01803958
-   p2: -0.00414975
+   k1: -0.32653747
+   k2: 0.10414629
+   p1: -0.00126553
+   p2: 0.00054975
+   k3: -0.01487892
 projection_parameters:
-   fx: 715.04564678
-   fy: 703.81319686
-   cx: 322.91248417
-   cy: 249.17720268
+   fx: 323.98412597
+   fy: 332.09188422
+   cx: 323.32948316
+   cy: 253.9395458
 # distortion_parameters:
 #    k1: -2.917e-01
 #    k2: 8.228e-02
@@ -32,10 +33,26 @@ projection_parameters:
 #    cy: 2.481e+02
 
 # Extrinsic parameter between IMU and Camera.
-estimate_extrinsic: 2   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
                         # 2  Don't know anything about extrinsic parameters. You don't need to give R,T. We will try to calibrate it. Do some rotation movement at beginning.                        
 #If you choose 0 or 1, you should write down the following matrix.
+#Rotation from camera frame to imu frame, imu^R_cam
+extrinsicRotation: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [0, 0, 1, 
+          -1, 0, 0, 
+          0, -1, 0]
+
+#Translation from camera frame to imu frame, imu^T_cam
+extrinsicTranslation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   # data: [-0.0216401454975,-0.064676986768, 0.00981073058949]
+   data: [ 0, 0, 0]
 
 #feature traker paprameters
 max_cnt: 150            # max feature number in feature tracking
@@ -71,7 +88,7 @@ fast_relocalization: 0             # useful in real-time and large project
 pose_graph_save_path: "/home/torobo/catkin_ws/output/pose_graph/" # save and load path
 
 #unsynchronization parameters
-estimate_td: 0                      # online estimate time offset between camera and imu
+estimate_td: 1                      # online estimate time offset between camera and imu
 td: 0.0                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
 
 #rolling shutter parameters
