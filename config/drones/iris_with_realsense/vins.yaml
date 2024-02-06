@@ -11,37 +11,34 @@ camera_name: camera
 image_width: 640
 image_height: 480
 distortion_parameters:
-   k1: -0.56136422
-   k2: -0.26225089
-   p1: 0.01803958
-   p2: -0.00414975
+   k1: 0.0
+   k2: 0.0
+   p1: 0.0
+   p2: 0.0
 projection_parameters:
-   fx: 715.04564678
-   fy: 703.81319686
-   cx: 322.91248417
-   cy: 249.17720268
+   fx: 462.1379699707031
+   fy: 462.1379699707031
+   cx: 320.0
+   cy: 240.0
 
 # Extrinsic parameter between IMU and Camera.
 estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
                         # 2  Don't know anything about extrinsic parameters. You don't need to give R,T. We will try to calibrate it. Do some rotation movement at beginning.                        
-#If you choose 0 or 1, you should write down the following matrix.
-#Rotation from camera frame to imu frame, imu^R_cam
-extrinsicRotation: !!opencv-matrix
-   rows: 3
-   cols: 3
-   dt: d
-   data: [-0.0206616, 0.745515, 0.666169, 
-          -0.996079, 0.0419827, -0.0778771, 
-          -0.0860261, -0.665166, 0.741724]
 
-#Translation from camera frame to imu frame, imu^T_cam
-extrinsicTranslation: !!opencv-matrix
-   rows: 3
-   cols: 1
-   dt: d
-   # data: [-0.0216401454975,-0.064676986768, 0.00981073058949]
-   data: [ 0, 0, 0]
+# extrinsicRotation: !!opencv-matrix
+#    rows: 3
+#    cols: 3
+#    dt: d
+#    data: [1, 0, 0, 
+#           0, 1, 0, 
+#           0, 0, 1]git config --global user.name
+
+# extrinsicTranslation: !!opencv-matrixyp
+#    rows: 3
+#    cols: 1
+#    dt: d
+#    data: [ 0, 0, 0.02]
 
 #feature traker paprameters
 max_cnt: 150            # max feature number in feature tracking
@@ -50,7 +47,7 @@ freq: 20                # frequence (Hz) of publish tracking result. At least 10
 F_threshold: 1.0        # ransac threshold (pixel)
 show_track: 1           # publish tracking image as topic
 equalize: 1             # if image is too dark or light, trun on equalize to find enough features
-fisheye: 0              # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
+fisheye: 0              # if using fisheye, trunyp on it. A circle mask will be loaded to remove edge noisy points
 
 #optimization parameters
 max_solver_time: 0.04  # max solver itration time (ms), to guarantee real time
@@ -58,10 +55,10 @@ max_num_iterations: 8   # max solver itrations, to guarantee real time
 keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
 
 #imu parameters       The more accurate parameters you provide, the better performance
-acc_n: 1.5721222569043472e-03          # accelerometer measurement noise standard deviation. #0.2   0.04
-gyr_n: 1.4175499318954707e-01        # gyroscope measurement noise standard deviation.     #0.05  0.004
-acc_w: 4.2483114332968589e-05         # accelerometer bias random work noise standard deviation.  #0.02
-gyr_w: 2.0391111868753027e-03       # gyroscope bias random work noise standard deviation.     #4.0e-5
+acc_n: 3.3034581409427090e-12          # accelerometer measurement noise standard deviation. #0.2
+gyr_n: 2.4051255059530095e-04         # gyroscope measurement noise standard deviation.     #0.05
+acc_w: 5.8215346815015560e-13         # accelerometer bias random work noise standard deviation.  #0.02
+gyr_w: 4.3133426188231436e-05       # gyroscope bias random work noise standard deviation.     #4.0e-5
 g_norm: 9.81007     # gravity magnitude
 
 #loop closure parameters
