@@ -10,27 +10,32 @@ model_type: PINHOLE
 camera_name: camera
 image_width: 640
 image_height: 480
-distortion_parameters:
-   k1: -0.32653747
-   k2: 0.10414629
-   p1: -0.00126553
-   p2: 0.00054975
-   k3: -0.01487892
-projection_parameters:
-   fx: 323.98412597
-   fy: 332.09188422
-   cx: 323.32948316
-   cy: 253.9395458
+
+# Runcam Nano 4
 # distortion_parameters:
-#    k1: -2.917e-01
-#    k2: 8.228e-02
-#    p1: 5.333e-05
-#    p2: -1.578e-04
+#    k1: -0.32653747
+#    k2: 0.10414629
+#    p1: -0.00126553
+#    p2: 0.00054975
+#    k3: -0.01487892
 # projection_parameters:
-#    fx: 4.616e+02
-#    fy: 4.603e+02
-#    cx: 3.630e+02
-#    cy: 2.481e+02
+#    fx: 323.98412597
+#    fy: 332.09188422
+#    cx: 323.32948316
+#    cy: 253.9395458
+
+# Runcam Atom
+distortion_parameters:
+   k1: -0.16925827
+   k2: 0.03443422
+   p1: -0.00179312
+   p2: 0.0008636
+   k3: -0.00826517
+projection_parameters: 
+   fx: 343.73247694
+   fy: 337.66078095
+   cx: 318.00217673
+   cy: 273.48351191
 
 # Extrinsic parameter between IMU and Camera.
 estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
@@ -57,7 +62,7 @@ extrinsicTranslation: !!opencv-matrix
 #feature traker paprameters
 max_cnt: 150            # max feature number in feature tracking
 min_dist: 30            # min distance between two features 
-freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+freq: 0                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
 show_track: 1           # publish tracking image as topic
 equalize: 1             # if image is too dark or light, trun on equalize to find enough features
@@ -69,10 +74,10 @@ max_num_iterations: 8   # max solver itrations, to guarantee real time
 keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
 
 #imu parameters       The more accurate parameters you provide, the better performance
-# acc_n: 1.6329295509543582e-02          # accelerometer measurement noise standard deviation. #0.2   0.04
-# gyr_n: 2.4881880196745278e-03        # gyroscope measurement noise standard deviation.     #0.05  0.004
-# acc_w: 3.3314477500410062e-04         # accelerometer bias random work noise standard deviation.  #0.02
-# gyr_w: 3.4554019279186437e-05       # gyroscope bias random work noise standard deviation.     #4.0e-5
+# acc_n: 1.5311257836681455e-02          # accelerometer measurement noise standard deviation. #0.2   0.04
+# gyr_n: 2.3796971882269389e-03        # gyroscope measurement noise standard deviation.     #0.05  0.004
+# acc_w: 4.6465114549330079e-04         # accelerometer bias random work noise standard deviation.  #0.02
+# gyr_w: 2.2024175983214700e-05       # gyroscope bias random work noise standard deviation.     #4.0e-5
 
 acc_n: 0.2          # accelerometer measurement noise standard deviation. #0.2
 gyr_n: 0.02         # gyroscope measurement noise standard deviation.     #0.05
