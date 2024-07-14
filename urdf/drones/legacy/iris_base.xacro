@@ -1,157 +1,108 @@
 <?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="iris_demo">
+  <xacro:include filename="$(find agri_resources)/urdf/drones/iris.xacro"/>
 
-<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
-  <!-- Instantiate iris "mechanics" -->
-  <xacro:include filename="$(find agri_resources)/urdf/drones/iris.xacro" />
-  
-  <!-- Specify reference parameters for GNSS receiver. -->
-  <xacro:include filename="$(find agri_resources)/urdf/drones/gps_home_location.xacro" />
-  <!-- Reference heading is equivalent to rotating Gazebo's map.
-       We do not use it for we would loose the match X=North, Y=West -->
-  <!-- in degrees, 0 so North is towards positive X values, and East is towards negative Y values -->
-  <xacro:property name="referenceHeading" value="0" />
-   
-  <!-- Instantiate a controller. -->
-  <xacro:controller_plugin_macro
-    namespace="${namespace}"
-    imu_sub_topic="imu"
-    >
-  </xacro:controller_plugin_macro>
+  <!-- Define a macro for the LiftDrag plugin -->
+  <xacro:macro name="lift_drag_plugin" params="name a0 alpha_stall cla cda cma cla_stall cda_stall cma_stall area air_density cp forward upward link_name">
+    <gazebo reference="${link_name}">
+      <plugin name="${name}" filename="libLiftDragPlugin.so">
+        <a0>${a0}</a0>
+        <alpha_stall>${alpha_stall}</alpha_stall>
+        <cla>${cla}</cla>
+        <cda>${cda}</cda>
+        <cma>${cma}</cma>
+        <cla_stall>${cla_stall}</cla_stall>
+        <cda_stall>${cda_stall}</cda_stall>
+        <cma_stall>${cma_stall}</cma_stall>
+        <area>${area}</area>
+        <air_density>${air_density}</air_density>
+        <cp>${cp}</cp>
+        <forward>${forward}</forward>
+        <upward>${upward}</upward>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
 
-  <!-- Mount an ADIS16448 IMU. -->
-  <xacro:imu_plugin_macro
-    namespace="${namespace}"
-    imu_suffix=""
-    parent_link="base_link"
-    imu_topic="imu"
-    mass_imu_sensor="0.015"
-    gyroscope_noise_density="0.0003394"
-    gyroscopoe_random_walk="0.000038785"
-    gyroscope_bias_correlation_time="1000.0"
-    gyroscope_turn_on_bias_sigma="0.0087"
-    accelerometer_noise_density="0.004"
-    accelerometer_random_walk="0.006"
-    accelerometer_bias_correlation_time="300.0"
-    accelerometer_turn_on_bias_sigma="0.1960"
-  >
-    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:imu_plugin_macro>
+  <!-- Instantiate the LiftDrag plugin macros for all rotor blades -->
+  <xacro:lift_drag_plugin name="rotor_0_blade_1" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="0.084 0 0" forward="0 1 0" upward="0 0 1" link_name="rotor_0"/>
+  <xacro:lift_drag_plugin name="rotor_0_blade_2" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="-0.084 0 0" forward="0 -1 0" upward="0 0 1" link_name="rotor_0"/>
+  <xacro:lift_drag_plugin name="rotor_1_blade_1" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="0.084 0 0" forward="0 1 0" upward="0 0 1" link_name="rotor_1"/>
+  <xacro:lift_drag_plugin name="rotor_1_blade_2" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="-0.084 0 0" forward="0 -1 0" upward="0 0 1" link_name="rotor_1"/>
+  <xacro:lift_drag_plugin name="rotor_2_blade_1" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="0.084 0 0" forward="0 -1 0" upward="0 0 1" link_name="rotor_2"/>
+  <xacro:lift_drag_plugin name="rotor_2_blade_2" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="-0.084 0 0" forward="0 1 0" upward="0 0 1" link_name="rotor_2"/>
+  <xacro:lift_drag_plugin name="rotor_3_blade_1" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="0.084 0 0" forward="0 -1 0" upward="0 0 1" link_name="rotor_3"/>
+  <xacro:lift_drag_plugin name="rotor_3_blade_2" a0="0.3" alpha_stall="1.4" cla="4.2500" cda="0.10" cma="0.00" cla_stall="-0.025" cda_stall="0.0" cma_stall="0.0" area="0.002" air_density="1.2041" cp="-0.084 0 0" forward="0 1 0" upward="0 0 1" link_name="rotor_3"/>
 
-  <!-- Mount a GNSS receiver. -->
-   
-  <gazebo>
-    <plugin name="${namespace}_gps_sim" filename="libhector_gazebo_ros_gps.so">
-      <alwaysOn>true</alwaysOn>
-      <topicName>${namespace}/fix</topicName>
-      <velocityTopicName>${namespace}/fix_velocity</velocityTopicName>
-      <referenceLatitude>${referenceLatitude}</referenceLatitude>
-      <referenceLongitude>${referenceLongitude}</referenceLongitude>
-      <referenceHeading>${referenceHeading}</referenceHeading>
-      <referenceAltitude>${referenceAltitude}</referenceAltitude>
-      
-      <!-- Sensor errors model for GPS Position measures -->
-      <!-- Units: [m], and [1/s] for drift frequency -->
-      <!-- For now, use Ardupilot's internal error models -->
-      <offset>0 0 0</offset>
-      <drift>0 0 0</drift>
-      <driftFrequency>0 0 0</driftFrequency>
-      <gaussianNoise>0 0 0</gaussianNoise>
-      <scaleError>1 1 1</scaleError>
-      
-      <!-- Note:
-       For the moment there is no barometer, so axis Z of the GPS is
-       used as a barometer sensor (with the according error model) -->
-      
-      <!-- Sensor errors model for GPS Velocity measures -->
-      <!-- Units: [m/s], and [1/s] for drift frequency -->
-      <!-- For now, use Ardupilot's internal error models -->
-      <velocityOffset>0 0 0</velocityOffset>
-      <velocityDrift>0 0 0</velocityDrift>
-      <velocityDriftFrequency>0 0 0</velocityDriftFrequency>
-      <velocityGaussianNoise>0 0 0</velocityGaussianNoise>
-      <velocityScaleError>1 1 1</velocityScaleError>
-      
-      <!-- Note:
-        The velocity Z does not really make sense, it is not used by
-        Ardupilot (right?).
-        However Z velocity drift is added to the Z position drift. -->
-        
-      <!-- Explanations:
-         offset:          constant added to the real value
-         gaussian noise:  randomly generated noise added to the real value
-         drift:           amount of drift
-         drift frequency: time constant (as a frequency) for the drift
-         scale error:     scaling of the real value (before adding other noises)
-       -->
-         
-    </plugin>
-  </gazebo>
-  
-    
-  <xacro:if value="$(arg enable_ground_truth)">
-    <!-- Mount an IMU providing ground truth. -->
-    <xacro:imu_plugin_macro
-      namespace="${namespace}"
-      imu_suffix="gt"
-      parent_link="base_link"
-      imu_topic="ground_truth/imu"
-      mass_imu_sensor="0.00001"
-      gyroscope_noise_density="0.0"
-      gyroscopoe_random_walk="0.0"
-      gyroscope_bias_correlation_time="1000.0"
-      gyroscope_turn_on_bias_sigma="0.0"
-      accelerometer_noise_density="0.0"
-      accelerometer_random_walk="0.0"
-      accelerometer_bias_correlation_time="300.0"
-      accelerometer_turn_on_bias_sigma="0.0"
-    >
-      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </xacro:imu_plugin_macro>
+  <xacro:macro name="arducopter_plugin" params="">
+    <gazebo>
+      <plugin name="arducopter_plugin" filename="libArduPilotPlugin.so">
+        <fdm_addr>127.0.0.1</fdm_addr>
+        <fdm_port_in>9002</fdm_port_in>
+        <fdm_port_out>9003</fdm_port_out>
+        <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+        <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+        <imuName>iris::iris/imu_link::imu_sensor</imuName>
+        <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+        <control channel="0">
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>rotor_0_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel="1">
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>rotor_1_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel="2">
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>rotor_2_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel="3">
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>rotor_3_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
 
-    <!-- Mount a generic odometry sensor providing ground truth. -->
-    <xacro:odometry_plugin_macro
-      namespace="${namespace}/ground_truth"
-      odometry_sensor_suffix="gt"
-      parent_link="base_link"
-      pose_topic="pose"
-      pose_with_covariance_topic="pose_with_covariance"
-      position_topic="position"
-      transform_topic="transform"
-      odometry_topic="odometry"
-      parent_frame_id="world"
-      mass_odometry_sensor="0.00001"
-      measurement_divisor="1"
-      measurement_delay="0"
-      unknown_delay="0.0"
-      noise_normal_position="0 0 0"
-      noise_normal_quaternion="0 0 0"
-      noise_normal_linear_velocity="0 0 0"
-      noise_normal_angular_velocity="0 0 0"
-      noise_uniform_position="0 0 0"
-      noise_uniform_quaternion="0 0 0"
-      noise_uniform_linear_velocity="0 0 0"
-      noise_uniform_angular_velocity="0 0 0"
-      enable_odometry_map="false"
-      odometry_map=""
-      image_scale=""
-    >
-      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" /> <!-- [kg.m^2] [kg.m^2] [kg.m^2] [kg.m^2] [kg.m^2] [kg.m^2] -->
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-    </xacro:odometry_plugin_macro>
-  </xacro:if>
-
-  <xacro:if value="$(arg enable_logging)">
-    <!-- Instantiate a logger -->
-    <xacro:bag_plugin_macro
-      namespace="${namespace}"
-      bag_file="$(arg log_file)"
-      rotor_velocity_slowdown_sim="${rotor_velocity_slowdown_sim}"
-    >
-    </xacro:bag_plugin_macro>
-  </xacro:if>
+  <xacro:arducopter_plugin/>
 
 </robot>
-
