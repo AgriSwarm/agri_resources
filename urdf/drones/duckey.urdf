@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot name="duckey_drone">
-  <link name="base_link">
+  <link name="imu">
     <visual>
       <geometry>
-        <mesh filename="package://agri_resources/meshes/drones/duckey_no_propeller.dae"/>
+        <mesh filename="package://agri_resources/meshes/drones/duckey.dae"/>
       </geometry>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -1.57 -1.57"/>
     </visual>
   </link>
 </robot>
