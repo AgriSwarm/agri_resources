@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<!-- <?xml version="1.0"?>
 <robot name="duckey_drone">
   <link name="imu">
     <visual>
@@ -8,4 +8,24 @@
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -1.57 -1.57"/>
     </visual>
   </link>
+</robot> -->
+<robot name="duckey_drone">
+  <link name="imu">
+    <visual>
+      <geometry>
+        <mesh filename="package://agri_resources/meshes/drones/duckey.dae"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -1.57 -1.57"/>
+    </visual>
+  </link>
+
+  <link name="camera_link">
+    <!-- You can add visual or other properties for the camera frame if needed -->
+  </link>
+
+  <joint name="imu_to_camera" type="fixed">
+    <parent link="imu"/>
+    <child link="camera_link"/>
+    <origin xyz="-0.015 0.03 0.035" rpy="1.57 -1.57 0"/>
+  </joint>
 </robot>
