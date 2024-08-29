@@ -35,6 +35,14 @@ grid_map:
     max_ray_length: 4.5
     visualization_truncate_height: 1.9
     show_occ_time: 1
+    body_T_cam: !!opencv-matrix
+        rows: 4
+        cols: 4
+        dt: d
+        data: [0.99995529, -0.00895263, -0.00304497, -0.0052643,
+            0.00903895,  0.99952011, 0.02962865,  0.003197,
+            0.00277825, -0.02965485,  0.99955634,  0.02411483,
+            0, 0, 0, 1]
 fsm:
     flight_type: 1
     thresh_replan_time: 1.0
