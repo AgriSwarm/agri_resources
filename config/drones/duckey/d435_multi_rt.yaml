@@ -52,7 +52,7 @@ td: 0.001                             # initial value of time offset. unit: s. r
 estimation_mode: 0 #0:single; 1:solve all; 2: distributed; 3:server
 double_counting_common_feature: 0
 min_inv_dep: 0.01 #100 meter away.
-min_measurements_per_keyframe: 20
+min_measurements_per_keyframe: 10
 
 #optimization parameters
 max_solver_time: 0.04 # max solver itration time (ms), to guarantee real time
@@ -111,7 +111,7 @@ max_superpoint_cnt: 145 # max feature extraction by superpoint
 max_solve_cnt: 100
 show_track_id: 0
 check_essential: 0
-enable_lk_optical_flow: 0 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
+enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
 remote_min_match_num: 40
 ransacReprojThreshold: 5.0
