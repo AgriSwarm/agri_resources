@@ -31,18 +31,18 @@ body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [0.99995529, -0.00895263, -0.00304497, -0.0052643,
-      0.00903895,  0.99952011, 0.02962865,  0.003197,
-      0.00277825, -0.02965485,  0.99955634,  0.02411483,
+   data: [-0.00137433 ,-0.04533842,  0.99897074,  0.04434179,
+      0.99997819, -0.00651579,  0.00108,     0.01815571,
+      0.00646012,  0.99895044,  0.04534639,  0.03285491,
       0, 0, 0, 1]
 
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [0.99995828, -0.008637, -0.00297314, 0.04456537,
-      0.00872108, 0.99952574, 0.02953381,  0.00360682,
-      0.00271665, -0.0295585,  0.99955936,  0.02442934,
+   data: [-0.00143094, -0.04524344 , 0.99897497,  0.04444998,
+      0.99998012, -0.00619976,  0.00115159,  0.06798712,
+      0.00614131 , 0.99895675,  0.04525142,  0.03313899,
       0, 0, 0, 1]
 
 #estimation
@@ -67,7 +67,7 @@ consensus_sync_for_averaging: 0
 consensus_sync_to_start: 0 #Is sync on start of the solving..
 consensus_trigger_time_err_us: 100
 ceres_num_threads: 4
-freeze_disarm_pose: 1
+freeze_disarm_pose: 0
 
 #depth fusing
 depth_far_thres: 3.0 # The max depth in frontend
@@ -128,7 +128,7 @@ enable_pca_superpoint: 1
 enable_pca_netvlad: 1
 superpoint_pca_dims: 64
 netvlad_pca_dims: 1024
-cnn_enable_tensorrt: 1
+cnn_enable_tensorrt: 0
 cnn_enable_tensorrt_fp16: 1
 cnn_enable_tensorrt_int8: 1
 netvlad_int8_calib_table_name: "mobilenetvlad_calibration.flatbuffers"
