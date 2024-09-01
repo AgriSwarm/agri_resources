@@ -2,7 +2,7 @@
 
 #inputs
 imu: 1         
-imu_topic: "/camera/imu"
+imu_topic: "/mavros/imu/data_raw"
 image0_topic: "/camera/infra1/image_rect_raw"
 image1_topic: "/camera/infra2/image_rect_raw"
 
