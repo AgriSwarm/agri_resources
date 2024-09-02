@@ -31,22 +31,21 @@ body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [-0.00137433 ,-0.04533842,  0.99897074,  0.04434179,
-      0.99997819, -0.00651579,  0.00108,     0.01815571,
-      0.00646012,  0.99895044,  0.04534639,  0.03285491,
-      0, 0, 0, 1]
-
+   data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
+      0.99918217, -0.02431851, 0.03230467, 0.02117146,
+      0.02446328, 0.99969235, -0.00409378, 0.04328738,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
 body_T_cam1: !!opencv-matrix
-   rows: 4
-   cols: 4
-   dt: d
-   data: [-0.00143094, -0.04524344 , 0.99897497,  0.04444998,
-      0.99998012, -0.00619976,  0.00115159,  0.06798712,
-      0.00614131 , 0.99895675,  0.04525142,  0.03313899,
-      0, 0, 0, 1]
+    rows: 4
+    cols: 4
+    dt: d
+    data: [-0.03226768, 0.00496599, 0.99946693, 0.04557953,
+      0.99918751, -0.02399975, 0.03237790, 0.07096948,
+      0.02414774, 0.99969963, -0.00418754, 0.04445992,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
 
 #estimation
-estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
 estimate_td: 0                      # online estimate time offset between camera and imu
 td: 0.001                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
 estimation_mode: 0 #0:single; 1:solve all; 2: distributed; 3:server
@@ -67,7 +66,7 @@ consensus_sync_for_averaging: 0
 consensus_sync_to_start: 0 #Is sync on start of the solving..
 consensus_trigger_time_err_us: 100
 ceres_num_threads: 4
-freeze_disarm_pose: 1
+freeze_disarm_pose: 0
 
 #depth fusing
 depth_far_thres: 3.0 # The max depth in frontend

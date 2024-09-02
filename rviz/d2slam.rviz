@@ -10,6 +10,8 @@ Panels:
         - /DenseMapping1/OccupancyMap1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
         - /TF1/Frames1
+        - /Odometry1
+        - /Odometry1/Shape1
       Splitter Ratio: 0.5429141521453857
     Tree Height: 519
   - Class: rviz/Selection
@@ -30,7 +32,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: OccupancyMap
   - Class: rviz/Displays
     Help Height: 0
     Name: Displays
@@ -190,7 +192,7 @@ Visualization Manager:
           Marker Topic: /d2vins/slding_window
           Name: SldWin
           Namespaces:
-            {}
+            CameraPoseVisualization: true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -198,7 +200,7 @@ Visualization Manager:
           Marker Topic: /d2vins/camera_visual
           Name: CameraVisual
           Namespaces:
-            {}
+            CameraPoseVisualization: true
           Queue Size: 100
           Value: true
         - Angle Tolerance: 0.10000000149011612
@@ -882,9 +884,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        camera_infra1_frame:
+          Value: true
         camera_link:
           Value: true
         imu:
+          Value: true
+        world:
           Value: true
       Marker Alpha: 1
       Marker Scale: 0.20000000298023224
@@ -893,9 +899,12 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        imu:
-          camera_link:
-            {}
+        world:
+          imu:
+            camera_infra1_frame:
+              {}
+            camera_link:
+              {}
       Update Interval: 0
       Value: true
     - Class: rviz/Group
@@ -1023,6 +1032,41 @@ Visualization Manager:
       top: 20
       update interval: 0.03999999910593033
       width: 80
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 100
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 0.10000000149011612
+        Axes Radius: 0.009999999776482582
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /d2vins/odometry
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 46; 52; 54
@@ -1051,7 +1095,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 0.4611169099807739
+      Distance: 0.3441992402076721
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1067,9 +1111,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3747950792312622
+      Pitch: 0.8197958469390869
       Target Frame: imu
-      Yaw: 2.996727228164673
+      Yaw: 3.6017298698425293
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 0.7654685378074646
@@ -1108,4 +1152,4 @@ Window Geometry:
     collapsed: true
   Width: 1427
   X: 114
-  Y: 187
+  Y: 113
