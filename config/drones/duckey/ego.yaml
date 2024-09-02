@@ -31,10 +31,12 @@ grid_map:
     p_max: 0.90
     p_occ: 0.80
     fading_time: 10
+    occ_interval: 0.032
+    vis_interval: 0.125
     min_ray_length: 0.1
     max_ray_length: 4.5
     visualization_truncate_height: 1.9
-    show_occ_time: 1
+    show_occ_time: 0
     body_T_cam: !!opencv-matrix
         rows: 4
         cols: 4
