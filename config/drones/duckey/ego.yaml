@@ -19,7 +19,7 @@ grid_map:
     use_depth_filter: 1
     depth_filter_tolerance: 0.15
     depth_filter_maxdist: 15.0
-    depth_filter_mindist: 0.5
+    depth_filter_mindist: 0.1
     depth_filter_margin: 2
     k_depth_scaling_factor: 1000
     est_depth_scaling_factor: 1
@@ -31,22 +31,20 @@ grid_map:
     p_max: 0.90
     p_occ: 0.80
     fading_time: 10
+    occ_interval: 0.032
+    vis_interval: 0.125
     min_ray_length: 0.1
     max_ray_length: 4.5
     visualization_truncate_height: 1.9
-    show_occ_time: 1
+    show_occ_time: 0
     body_T_cam: !!opencv-matrix
         rows: 4
         cols: 4
         dt: d
-        data: [0, 0, -1.0, 0,
-            0, 1.0, 0, 0,
-            1.0, 0, 0, 0,
-            0, 0, 0, 1.0]
-        # data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
-        #     0.99918217, -0.02431851, 0.03230467, 0.02117146,
-        #     0.02446328, 0.99969235, -0.00409378, 0.04328738,
-        #     0.00000000, 0.00000000, 0.00000000, 1.00000000]
+        data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
+            0.99918217, -0.02431851, 0.03230467, 0.02117146,
+            0.02446328, 0.99969235, -0.00409378, 0.04328738,
+            0.00000000, 0.00000000, 0.00000000, 1.00000000]
 fsm:
     flight_type: 1
     thresh_replan_time: 1.0

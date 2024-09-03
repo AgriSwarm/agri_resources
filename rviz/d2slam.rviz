@@ -10,8 +10,6 @@ Panels:
         - /DenseMapping1/OccupancyMap1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
         - /TF1/Frames1
-        - /Odometry1
-        - /Odometry1/Shape1
       Splitter Ratio: 0.5429141521453857
     Tree Height: 519
   - Class: rviz/Selection
@@ -1032,41 +1030,56 @@ Visualization Manager:
       top: 20
       update interval: 0.03999999910593033
       width: 80
-    - Angle Tolerance: 0.10000000149011612
-      Class: rviz/Odometry
-      Covariance:
-        Orientation:
-          Alpha: 0.5
-          Color: 255; 255; 127
-          Color Style: Unique
-          Frame: Local
-          Offset: 1
-          Scale: 1
-          Value: true
-        Position:
-          Alpha: 0.30000001192092896
-          Color: 204; 51; 204
-          Scale: 1
-          Value: true
-        Value: true
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
       Enabled: true
-      Keep: 100
-      Name: Odometry
-      Position Tolerance: 0.10000000149011612
-      Queue Size: 10
-      Shape:
-        Alpha: 1
-        Axes Length: 0.10000000149011612
-        Axes Radius: 0.009999999776482582
-        Color: 255; 25; 0
-        Head Length: 0.30000001192092896
-        Head Radius: 0.10000000149011612
-        Shaft Length: 1
-        Shaft Radius: 0.05000000074505806
-        Value: Axes
-      Topic: /d2vins/odometry
-      Unreliable: false
+      Name: vins_delay
+      Show Value: true
+      Topic: /d2vins/delay
       Value: true
+      auto color change: false
+      auto scale: false
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 330
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1000
+      min value: 0
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: true
+      Name: map_delay
+      Show Value: true
+      Topic: /drone_0_ego_planner_node/grid_map/delay
+      Value: true
+      auto color change: false
+      auto scale: false
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 430
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1000
+      min value: 0
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
   Enabled: true
   Global Options:
     Background Color: 46; 52; 54
@@ -1095,7 +1108,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 0.3441992402076721
+      Distance: 6.094677925109863
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1111,9 +1124,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8197958469390869
+      Pitch: 0.3047969937324524
       Target Frame: imu
-      Yaw: 3.6017298698425293
+      Yaw: 2.9567248821258545
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 0.7654685378074646
@@ -1152,4 +1165,4 @@ Window Geometry:
     collapsed: true
   Width: 1427
   X: 114
-  Y: 113
+  Y: 27
