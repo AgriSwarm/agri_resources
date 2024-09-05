@@ -127,7 +127,7 @@ enable_pca_superpoint: 1
 enable_pca_netvlad: 1
 superpoint_pca_dims: 64
 netvlad_pca_dims: 1024
-cnn_enable_tensorrt: 0
+cnn_enable_tensorrt: 1
 cnn_enable_tensorrt_fp16: 1
 cnn_enable_tensorrt_int8: 1
 netvlad_int8_calib_table_name: "mobilenetvlad_calibration.flatbuffers"
