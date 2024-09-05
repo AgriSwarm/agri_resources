@@ -10,6 +10,7 @@ Panels:
         - /DenseMapping1/OccupancyMap1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
         - /TF1/Frames1
+        - /Odometry1/Shape1
       Splitter Ratio: 0.5429141521453857
     Tree Height: 385
   - Class: rviz/Selection
@@ -30,7 +31,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: OccupancyMap
+    SyncSource: PointCloud2
   - Class: rviz/Displays
     Help Height: 0
     Name: Displays
@@ -1124,6 +1125,41 @@ Visualization Manager:
       top: 20
       update interval: 0.03999999910593033
       width: 80
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 1
+      Shape:
+        Alpha: 1
+        Axes Length: 0.20000000298023224
+        Axes Radius: 0.019999999552965164
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /mavros/local_position/odom
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 46; 52; 54
@@ -1152,7 +1188,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 7.070969581604004
+      Distance: 5.240312099456787
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1168,9 +1204,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2147970199584961
+      Pitch: 0.19479478895664215
       Target Frame: imu
-      Yaw: 2.871723175048828
+      Yaw: 2.1967053413391113
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 0.7654685378074646
@@ -1207,6 +1243,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: true
-  Width: 952
-  X: 72
-  Y: 27
+  Width: 1427
+  X: 321
+  Y: 63
