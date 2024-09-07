@@ -1,49 +1,5 @@
 %YAML:1.0
 
-#inputs
-imu: 1         
-imu_topic: "/mavros/imu/data_raw"
-image0_topic: "/camera/infra1/image_rect_raw"
-image1_topic: "/camera/infra2/image_rect_raw"
-
-is_compressed_images: 0
-
-imu_freq: 200
-image_freq: 15
-frame_step: 3
-
-#Camera configuration
-camera_configuration: 0  #STEREO_PINHOLE = 0, STEREO_FISHEYE = 1, PINHOLE_DEPTH = 2, FOURCORNER_FISHEYE = 3
-num_of_cam: 2
-cam0_calib: "../../camera/d435_realsense/left_424x240.yaml"
-cam1_calib: "../../camera/d435_realsense/right_424x240.yaml"
-# cam0_calib: "left_424x240.yaml"
-# cam1_calib: "right_424x240.yaml"
-# calib_file_path: "camera_imu_calib-camchain-imucam.yaml"
-# image_width: 480
-# image_height: 270
-image_width: 424
-image_height: 240
-# image_width: 640
-# image_height: 480
-
-body_T_cam0: !!opencv-matrix
-   rows: 4
-   cols: 4
-   dt: d
-   data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
-      0.99918217, -0.02431851, 0.03230467, 0.02117146,
-      0.02446328, 0.99969235, -0.00409378, 0.04328738,
-      0.00000000, 0.00000000, 0.00000000, 1.00000000]
-body_T_cam1: !!opencv-matrix
-    rows: 4
-    cols: 4
-    dt: d
-    data: [-0.03226768, 0.00496599, 0.99946693, 0.04557953,
-      0.99918751, -0.02399975, 0.03237790, 0.07096948,
-      0.02414774, 0.99969963, -0.00418754, 0.04445992,
-      0.00000000, 0.00000000, 0.00000000, 1.00000000]
-
 #estimation
 estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
 estimate_td: 0                      # online estimate time offset between camera and imu
@@ -100,10 +56,6 @@ enable_marginalization: 1
 margin_sparse_solver: 0
 always_fixed_first_pose: 0
 remove_base_when_margin_remote: 2
-#  When set to 2, will use the all relevant measurements of the removing frames to compute the prior,
-# and the baseFrame (where!=removeID) will not be removed. This may lead to double counting of this baseFrame measurement: but it's stable.
-#  When set to 1, will remove the baseframe's measurements of those measurements which is not base on current frame.
-#  set to 0 those measurements (which on a landmark's baseFrame is not been removed) will be ignore.
 
 #feature tracker parameters
 max_cnt: 200            # max feature number in feature tracking
@@ -111,7 +63,7 @@ max_superpoint_cnt: 145 # max feature extraction by superpoint
 max_solve_cnt: 100
 show_track_id: 0
 check_essential: 0
-enable_lk_optical_flow: 0 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
+enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
 remote_min_match_num: 40
 ransacReprojThreshold: 5.0
@@ -127,26 +79,11 @@ enable_pca_superpoint: 1
 enable_pca_netvlad: 1
 superpoint_pca_dims: 64
 netvlad_pca_dims: 1024
-cnn_enable_tensorrt: 1
+cnn_enable_tensorrt: 0
 cnn_enable_tensorrt_fp16: 1
 cnn_enable_tensorrt_int8: 1
 netvlad_int8_calib_table_name: "mobilenetvlad_calibration.flatbuffers"
 superpoint_int8_calib_table_name: "superpoint_calibration.flatbuffers"
-
-# #Measurement parameters       The more accurate parameters you provide, the better performance
-# acc_n: 0.0028         # accelerometer measurement noise standard deviation. #0.2   0.04
-# gyr_n: 0.00016        # gyroscope measurement noise standard deviation.     #0.05  0.004
-# acc_w: 0.00086        # accelerometer bias random work noise standard deviation.  #0.002
-# gyr_w: 0.000022       # gyroscope bias random work noise standard deviation.     #4.0e-5
-# acc_n: 0.0017047678013254336          # accelerometer measurement noise standard deviation. #0.2   0.04
-# gyr_n: 0.00013415083543670108          # gyroscope measurement noise standard deviation.     #0.05  0.004
-# acc_w: 0.00010399861198664542          # accelerometer bias random work noise standard deviation.  #0.002
-# gyr_w: 1.262930974555258e-05        # gyroscope bias random work noise standard deviation.     #4.0e-5
-acc_n: 0.1          # accelerometer measurement noise standard deviation. #0.2   0.04
-gyr_n: 0.05         # gyroscope measurement noise standard deviation.     #0.05  0.004
-acc_w: 0.002         # accelerometer bias random work noise standard deviation.  #0.002
-gyr_w: 0.0004       # gyroscope bias random work noise standard deviation.     #4.0e-5
-g_norm: 9.805         # gravity magnitude
 
 #Loop Closure Detection
 loop_detection_netvlad_thres: 0.85
