@@ -30,7 +30,6 @@
     <model name="iris">
       <include>
         <uri>model://drone_0_with_realsense</uri>
-        <!-- <uri>model://iris_base</uri> -->
       </include>
       <pose> 0 0 0 0 0 0</pose>
     </model>
