@@ -2,7 +2,7 @@
 
 # Check if an argument is provided
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 <master_ip>"
+    echo "Usage: rviz <master_ip>"
     exit 1
 fi
 
