@@ -10,7 +10,7 @@
   </link>
 </robot> -->
 <robot name="duckey_drone">
-  <link name="imu">
+  <link name="base_link">
     <visual>
       <geometry>
         <mesh filename="package://agri_resources/meshes/drones/duckey.dae"/>
@@ -24,7 +24,7 @@
   </link>
 
   <joint name="imu_to_camera" type="fixed">
-    <parent link="imu"/>
+    <parent link="base_link"/>
     <child link="camera_link"/>
     <origin xyz="0.03 -0.025 0.035" rpy="3.14 0 0"/>
   </joint>

@@ -8,6 +8,8 @@ Panels:
         - /VIOGroup1/MarginedCloud1/Autocompute Value Bounds1
         - /DenseMapping1/OccupancyMap1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
+        - /Odometry1
+        - /Odometry1/Shape1
       Splitter Ratio: 0.5429141521453857
     Tree Height: 385
   - Class: rviz/Selection
@@ -28,7 +30,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: PointCloud
   - Class: rviz/Displays
     Help Height: 0
     Name: Displays
@@ -127,6 +129,16 @@ Visualization Manager:
         base_link:
           base_link_frd:
             {}
+          camera_link:
+            camera_color_frame:
+              camera_color_optical_frame:
+                {}
+            camera_depth_frame:
+              camera_depth_optical_frame:
+                {}
+            camera_infra2_frame:
+              camera_infra2_optical_frame:
+                {}
         map:
           map_ned:
             {}
@@ -138,16 +150,6 @@ Visualization Manager:
             camera_infra1_frame:
               camera_infra1_optical_frame:
                 {}
-            camera_link:
-              camera_color_frame:
-                camera_color_optical_frame:
-                  {}
-              camera_depth_frame:
-                camera_depth_optical_frame:
-                  {}
-              camera_infra2_frame:
-                camera_infra2_optical_frame:
-                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -160,15 +162,15 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        imu:
+        base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -1122,6 +1124,36 @@ Visualization Manager:
       top: 20
       update interval: 0.03999999910593033
       width: 80
+    - Alpha: 1
+      Angular Arrow Scale: 2
+      Angular Color: 204; 204; 51
+      Arrow Width: 0.5
+      Class: rviz/TwistStamped
+      Enabled: true
+      Hide Small Values: true
+      History Length: 1
+      Linear Arrow Scale: 2
+      Linear Color: 204; 51; 51
+      Name: TwistStamped
+      Queue Size: 10
+      Topic: /twist_cmd
+      Unreliable: false
+      Value: true
+    - Class: jsk_rviz_plugin/Pictogram
+      Enabled: true
+      Name: Pictogram
+      Queue Size: 10
+      Topic: /mavros_bridge/pictogram
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /d2vins/keyframe_for_loop
+      Name: KeyFramesForLoop
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
     - Angle Tolerance: 0.10000000149011612
       Class: rviz/Odometry
       Covariance:
@@ -1143,11 +1175,11 @@ Visualization Manager:
       Keep: 1
       Name: Odometry
       Position Tolerance: 0.10000000149011612
-      Queue Size: 1
+      Queue Size: 10
       Shape:
         Alpha: 1
-        Axes Length: 0.10000000149011612
-        Axes Radius: 0.009999999776482582
+        Axes Length: 0.20000000298023224
+        Axes Radius: 0.019999999552965164
         Color: 255; 25; 0
         Head Length: 0.30000001192092896
         Head Radius: 0.10000000149011612
@@ -1155,28 +1187,6 @@ Visualization Manager:
         Shaft Radius: 0.05000000074505806
         Value: Axes
       Topic: /mavros/local_position/odom
-      Unreliable: false
-      Value: true
-    - Alpha: 1
-      Angular Arrow Scale: 2
-      Angular Color: 204; 204; 51
-      Arrow Width: 0.5
-      Class: rviz/TwistStamped
-      Enabled: true
-      Hide Small Values: true
-      History Length: 1
-      Linear Arrow Scale: 2
-      Linear Color: 204; 51; 51
-      Name: TwistStamped
-      Queue Size: 10
-      Topic: /twist_cmd
-      Unreliable: false
-      Value: true
-    - Class: jsk_rviz_plugin/Pictogram
-      Enabled: true
-      Name: Pictogram
-      Queue Size: 10
-      Topic: /mavros_bridge/pictogram
       Unreliable: false
       Value: true
   Enabled: true
@@ -1207,7 +1217,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/ThirdPersonFollower
-      Distance: 0.46130305528640747
+      Distance: 0.7052907943725586
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -1223,9 +1233,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.194795161485672
+      Pitch: 0.12979474663734436
       Target Frame: imu
-      Yaw: 2.6016902923583984
+      Yaw: 3.2216694355010986
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 0.7654685378074646

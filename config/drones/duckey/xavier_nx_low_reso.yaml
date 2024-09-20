@@ -20,8 +20,17 @@ imu_calib: "../../imu/kakute_h7_mini.yaml"
 image_width: 424
 image_height: 240
 
+base_T_imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [1.00000000, 0.00000000, 0.00000000, 0.00000000,
+      0.00000000, 1.00000000, 0.00000000, 0.00000000,
+      0.00000000, 0.00000000, 1.00000000, 0.00000000,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
 cam0_calib: "../../camera/d435_realsense/camera_424x240.yaml"
-body_T_cam0: !!opencv-matrix
+imu_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
@@ -31,7 +40,7 @@ body_T_cam0: !!opencv-matrix
         0.00000000, 0.00000000, 0.00000000, 1.00000000]
 
 cam1_calib: "../../camera/d435_realsense/camera_424x240.yaml"
-body_T_cam1: !!opencv-matrix
+imu_T_cam1: !!opencv-matrix
     rows: 4
     cols: 4
     dt: d
@@ -41,7 +50,7 @@ body_T_cam1: !!opencv-matrix
         0.00000000, 0.00000000, 0.00000000, 1.00000000]
 
 depth_cam_calib: "../../camera/d435_realsense/camera_424x240.yaml"
-body_T_depth_cam: !!opencv-matrix
+imu_T_depth_cam: !!opencv-matrix
     rows: 4
     cols: 4
     dt: d
