@@ -1,9 +1,23 @@
 #!/bin/bash
 
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+    echo "Usage: rviz <master_ip>"
+    exit 1
+fi
+
+MASTER_IP=$1
+
+# Update .bash_profile
+sed -i "s/export ROS_IP=.*/export ROS_IP=$(hostname -I | awk '{print $1}')/" ~/.bash_profile
+sed -i "s|export ROS_MASTER_URI=.*|export ROS_MASTER_URI='http://${MASTER_IP}:11311/'|" ~/.bash_profile
+
+# Source .bash_profile to get the updated variables
+source ~/.bash_profile
+
 COMMON_SETUP="
 source \${HOME}/.bashrc
-export ROS_IP=10.0.0.226
-export ROS_MASTER_URI='http://10.0.0.1:11311/'
+source ~/.bash_profile
 "
 
 TERMINAL1_CMD="
