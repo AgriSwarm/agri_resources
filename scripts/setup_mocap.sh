@@ -11,7 +11,7 @@ CLIENT_IP=$(hostname -I | awk '{print $1}')
 
 COMMON_SETUP="
 source \${HOME}/.bashrc
-source ~/.bash_profil
+source ~/.bash_profile
 "
 
 LAUNCH_CMD="
