@@ -44,6 +44,7 @@
     <!-- CONFIG-FILE -->
     <rosparam file="$(find agri_resources)/config/mocap/$(arg conf_file)"/>   
     <remap from="/natnet_ros/RigidBody1/pose" to="/mavros/vision_pose/pose"/>
+    <!-- <remap from="/natnet_ros/RigidBody1/odom" to="/mavros/vision_pose/odom"/> -->
   
     <!-- LOGGING -->
     <param name="log_internals" value="$(arg log_internals)" type="bool"/>
