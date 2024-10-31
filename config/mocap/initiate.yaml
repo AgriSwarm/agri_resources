@@ -18,6 +18,7 @@ E_z: 0.04
 # Tracking tolerance considered as norm of 3D vector when 'Individual_error' is set to false
 E: 0.04
 #-------------#
+delay_ms: 100.0
 
 # Add all the object names in this list to get the head count and the names of the objects
 object_names:

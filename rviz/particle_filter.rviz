@@ -1,13 +1,17 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 78
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /Status1
-      Splitter Ratio: 0.5
-    Tree Height: 549
+        - /VIOGroup1/MarginedCloud1/Autocompute Value Bounds1
+        - /Remote1/Path11
+        - /DenseMapping1/OccupancyMap1
+        - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
+        - /Odometry1/Shape1
+      Splitter Ratio: 0.5429141521453857
+    Tree Height: 601
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -15,6 +19,7 @@ Panels:
       - /2D Pose Estimate1
       - /2D Nav Goal1
       - /Publish Point1
+      - /3D Nav Goal1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
@@ -26,6 +31,19 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: ""
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /VIOGroup1
+        - /VIOGroup1/MarginedCloud1/Autocompute Value Bounds1
+        - /Remote1
+        - /DenseMapping1/OccupancyMap1
+        - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
+      Splitter Ratio: 0.5
+    Tree Height: 441
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -48,27 +66,1159 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 10
+      Plane Cell Count: 50
       Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: false
+      Length: 3
+      Name: Axes
+      Radius: 0.05000000074505806
+      Reference Frame: <Fixed Frame>
+      Show Trail: false
+      Value: false
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        camera_link:
+          Value: true
+      Marker Alpha: 1
+      Marker Scale: 0.20000000298023224
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          camera_link:
+            {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: VIOPath
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: PointCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 2
+          Size (m): 0.03999999910593033
+          Style: Boxes
+          Topic: /d2vins/point_cloud
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 5.77298641204834
+            Min Value: -5.290004730224609
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud
+          Color: 255; 255; 255
+          Color Transformer: AxisColor
+          Decay Time: 1000
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: MarginedCloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 2
+          Size (m): 0.029999999329447746
+          Style: Boxes
+          Topic: /d2vins/margined_cloud
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /d2vins/slding_window
+          Name: SldWin
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /d2vins/camera_visual
+          Name: CameraVisual
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.05999999865889549
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 1
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry
+          Unreliable: false
+          Value: true
+      Enabled: true
+      Name: VIOGroup
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 252; 233; 79
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.009999999776482582
+          Name: Path1
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_0
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 255; 127
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path2
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_2
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 0; 170; 255
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path3
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_3
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 85; 255; 255
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path4
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_4
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 85; 85; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path5
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_5
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 85; 255
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path6
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_6
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 85; 85; 127
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path7
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2vins/path_7
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: false
+          Keep: 1
+          Name: Odometry1
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_1
+          Unreliable: false
+          Value: false
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry2
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_2
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry3
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_3
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry4
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_4
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry5
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_5
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry6
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_6
+          Unreliable: false
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 1
+          Name: Odometry7
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 0.30000001192092896
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 0.30000001192092896
+            Shaft Radius: 0.05000000074505806
+            Value: Axes
+          Topic: /d2vins/odometry_7
+          Unreliable: false
+          Value: true
+      Enabled: true
+      Name: Remote
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.6000000238418579
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 0; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: PGOPath
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2pgo/pgo_path
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 85; 0; 255
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: PGOPath1
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2pgo/pgo_path_1
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 0; 255
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: PGOPath2
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2pgo/pgo_path_2
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: true
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: PGOPose
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Axes
+          Topic: /d2pgo/pose_0
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: true
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: PGOPose1
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Axes
+          Topic: /d2pgo/pose_0
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 85; 0; 255
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.05000000074505806
+          Name: PGOPath3
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /d2pgo/pgo_path_3
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: false
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: PGOPose2
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Axes
+          Topic: /d2pgo/pose_2
+          Unreliable: false
+          Value: false
+      Enabled: true
+      Name: PGO
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.800000011920929
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 2
+            Min Value: -0.5
+            Value: false
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 164; 0; 0
+          Color Transformer: AxisColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: OccupancyMap
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 10
+          Size (m): 0.20000000298023224
+          Style: Boxes
+          Topic: /drone_0_ego_planner_node/grid_map/occupancy
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 2.0999999046325684
+            Min Value: -1.899999976158142
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 32; 74; 135
+          Color Transformer: AxisColor
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: InflateOccupancyMap
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.10000000149011612
+          Style: Boxes
+          Topic: /drone_0_ego_planner_node/grid_map/occupancy_inflate
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 9.971123695373535
+            Min Value: -21.049327850341797
+            Value: true
+          Axis: Z
+          Channel Name: rgb
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: PointCloud2
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 10
+          Size (m): 0.05000000074505806
+          Style: Flat Squares
+          Topic: /camera/depth/color/points
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+      Enabled: true
+      Name: DenseMapping
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/a_star_list
+          Name: AStarList
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/failed_list
+          Name: FailedList
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/global_list
+          Name: GlobalList
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/goal_point
+          Name: GoalPoint
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/init_list
+          Name: InitList
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /drone_0_ego_planner_node/optimal_list
+          Name: OptimalList
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+      Enabled: true
+      Name: Planning
+    - Class: jsk_rviz_plugin/PieChart
+      Enabled: true
+      Name: Battery
+      Topic: /mavros_bridge/battery
+      Value: true
+      auto color change: false
+      background color: 0; 0; 0
+      backround alpha: 0
+      clockwise rotate direction: false
+      foreground alpha: 0.699999988079071
+      foreground alpha 2: 0.4000000059604645
+      foreground color: 25; 255; 240
+      left: 10
+      max color: 255; 0; 0
+      max color change threthold: 0
+      max value: 100
+      med color: 255; 0; 0
+      med color change threthold: 0
+      min value: 0
+      show caption: true
+      size: 100
+      text size: 14
+      top: 10
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: true
+      Name: cpu_temp
+      Show Value: true
+      Topic: /hardware_bridge/cpu_temperature
+      Value: true
+      auto color change: false
+      auto scale: true
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 130
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1
+      min value: -1
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: true
+      Name: gpu_temp
+      Show Value: true
+      Topic: /hardware_bridge/gpu_temperature
+      Value: true
+      auto color change: false
+      auto scale: true
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 230
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1
+      min value: -1
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: true
+      Name: vins_delay
+      Show Value: true
+      Topic: /d2vins/delay
+      Value: true
+      auto color change: false
+      auto scale: false
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 330
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1000
+      min value: 0
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
+    - Buffer length: 100
+      Class: jsk_rviz_plugin/Plotter2D
+      Enabled: true
+      Name: map_delay
+      Show Value: true
+      Topic: /drone_0_ego_planner_node/grid_map/delay
+      Value: true
+      auto color change: false
+      auto scale: false
+      background color: 0; 0; 0
+      backround alpha: 0
+      border: true
+      foreground alpha: 0.699999988079071
+      foreground color: 25; 255; 240
+      height: 80
+      left: 430
+      linewidth: 1
+      max color: 255; 0; 0
+      max value: 1000
+      min value: 0
+      show caption: true
+      text size: 12
+      top: 20
+      update interval: 0.03999999910593033
+      width: 80
+    - Alpha: 1
+      Angular Arrow Scale: 2
+      Angular Color: 204; 204; 51
+      Arrow Width: 0.5
+      Class: rviz/TwistStamped
+      Enabled: true
+      Hide Small Values: true
+      History Length: 1
+      Linear Arrow Scale: 2
+      Linear Color: 204; 51; 51
+      Name: TwistStamped
+      Queue Size: 10
+      Topic: /twist_cmd
+      Unreliable: false
+      Value: true
+    - Class: jsk_rviz_plugin/Pictogram
+      Enabled: true
+      Name: Pictogram
+      Queue Size: 10
+      Topic: /mavros_bridge/pictogram
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /d2vins/keyframe_for_loop
+      Name: KeyFramesForLoop
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 0.20000000298023224
+        Axes Radius: 0.019999999552965164
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /mavros/local_position/odom
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /d2vins/loop_match
+      Name: LoopMatch
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /d2vins/similarity_set_marker
+      Name: SimilaritySets
+      Namespaces:
+        {}
+      Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /robot_particle
-      Name: MarkerArray
+      Name: RobotParticle
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /setpoint_position_marker
+      Name: SetPointPosition
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /landmarks_match
+      Name: LandmarksMatch
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseDebug
+      Queue Size: 10
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Axes
+      Topic: /d2frontend/pose_processed_array
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
+    Background Color: 238; 238; 236
     Default Light: true
     Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
-    - Class: rviz/Interact
-      Hide Inactive Objects: true
     - Class: rviz/MoveCamera
     - Class: rviz/Select
     - Class: rviz/FocusCamera
@@ -83,11 +1233,13 @@ Visualization Manager:
     - Class: rviz/PublishPoint
       Single click: true
       Topic: /clicked_point
+    - Class: rviz_plugins/Goal3DTool
+      Topic: goal
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 0.958228588104248
+      Class: rviz/ThirdPersonFollower
+      Distance: 3.6686019897460938
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -95,25 +1247,45 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: -0.5122734308242798
+        Y: -0.7528762817382812
+        Z: 0.08266597241163254
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.950397253036499
-      Target Frame: <Fixed Frame>
-      Yaw: 1.1253949403762817
-    Saved: ~
+      Pitch: 0.26979702711105347
+      Target Frame: base_link
+      Yaw: 2.3416666984558105
+    Saved:
+      - Class: rviz/ThirdPersonFollower
+        Distance: 0.7654685378074646
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: ThirdPersonFollower
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.11039859801530838
+        Target Frame: imu
+        Yaw: 1.5803974866867065
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 846
+  Height: 752
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000156000002b0fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000002b0000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000002b0000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004b00000003efc0100000002fb0000000800540069006d00650100000000000004b0000003bc00fffffffb0000000800540069006d006501000000000000045000000000000000000000023f000002b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f400000296fc0200000014fc0000003d00000296000000c900fffffffa000000010100000002fb0000000a0049006d00610067006502000000480000001b00000280000001e0fb000000100044006900730070006c0061007900730100000000000001df0000015600fffffffb0000000a0049006d0061006700650100000016000001d30000000000000000fb0000001200530065006c0065006300740069006f006e0000000028000003990000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed0000017900000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200720061007700200049006d0061006700650000000028000000300000000000000000fb00000012007200610077005f0069006d0061006700650000000028000000f90000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650000000028000001d50000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0069006d0061006700650000000192000000d60000000000000000fb000000100044006900730070006c006100790073000000001400000531000000c900fffffffc000000280000011e0000000000fffffffa000000000100000002fb0000001200720061007700200049006d0061006700650000000000ffffffff0000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650100000000000002370000000000000000fb0000001000410052005f0069006d0061006700650100000373000000160000000000000000fb0000001200720061007700200069006d006100670065010000038f000000160000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0049006d0061006700650000000027000003420000000000000000fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000a0049006d00610067006500000001ce000000b30000000000000000000000010000015f0000039efc0200000004fc000000160000019b0000000000fffffffa000000000100000002fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000a0049006d006100670065000000027d000000ad0000000000000000fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000039e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000043800000158fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009a000000060fc0100000002fb0000000800540069006d00650000000000000009a00000041800fffffffb0000000800540069006d00650100000000000004500000000000000000000003700000029600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -122,6 +1294,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1200
-  X: 244
-  Y: 27
+  Width: 1386
+  X: 242
+  Y: 178

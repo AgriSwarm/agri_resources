@@ -66,6 +66,8 @@ check_essential: 0
 enable_lk_optical_flow: 0 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
 remote_min_match_num: 40
+enable_superglue_local: 0
+enable_superglue_remote: 0
 ransacReprojThreshold: 5.0
 parallex_thres: 0.012
 knn_match_ratio: 0.9 #This apply to superpoint feature track & loop clouse detection.
