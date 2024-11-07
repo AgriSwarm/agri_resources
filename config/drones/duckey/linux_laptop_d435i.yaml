@@ -1,5 +1,5 @@
 %YAML:1.0
-
+---
 #inputs
 imu: 1
 imu_topic: "/camera/imu"

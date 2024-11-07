@@ -1,5 +1,5 @@
 %YAML:1.0
-
+---
 #common parameters
 imu_topic: "/drone_0_cf/imu"
 image_topic: "/drone_0/color/image_raw"

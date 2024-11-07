@@ -1,5 +1,5 @@
 %YAML:1.0
-
+---
 grid_map:
     frame_id: "world"
     enable_virtual_wall: 0
