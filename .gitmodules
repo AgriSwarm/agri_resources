@@ -1,0 +1,3 @@
+[submodule "config/ardupilot"]
+	path = config/ardupilot
+	url = git@github.com:AgriSwarm/ap_params.git
