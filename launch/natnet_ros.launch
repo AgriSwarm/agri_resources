@@ -20,7 +20,7 @@
   <arg name="pub_rigid_body" default="true"/> 
   <!-- To publish the individual (unlabeled) markers along with the (labeled) markers of the rigid bodies -->
   <!-- keep pub_rigid_body to true to publish the markers of the rigidbody -->
-  <arg name="pub_rigid_body_marker" default="true"/>  
+  <arg name="pub_rigid_body_marker" default="false"/>  
   <!-- To publish markers as rigidbodies and track them, make the required changes in the config/initiate.yaml -->
   <arg name="pub_individual_marker" default="false"/>
   <!-- To publish all the unlabeled markers as point cloud -->
@@ -44,6 +44,7 @@
     <!-- CONFIG-FILE -->
     <rosparam file="$(find agri_resources)/config/mocap/$(arg conf_file)"/>   
     <remap from="/natnet_ros/RigidBody1/pose" to="/mavros/vision_pose/pose"/>
+    <!-- <remap from="/natnet_ros/RigidBody1/odom" to="/mavros/vision_pose/odom"/> -->
   
     <!-- LOGGING -->
     <param name="log_internals" value="$(arg log_internals)" type="bool"/>
