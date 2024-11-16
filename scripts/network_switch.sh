@@ -37,8 +37,11 @@ if [ -z "$IP_ADDRESS" ]; then
     exit 1
 fi
 
-# Update .bash_profile
-sed -i "s/export ROS_IP=.*/export ROS_IP=$IP_ADDRESS/" ~/.bash_profile
+if ! grep -q "export ROS_IP=" ~/.bash_profile; then
+    echo "export ROS_IP=$IP_ADDRESS" >> ~/.bash_profile
+else
+    sed -i "s/export ROS_IP=.*/export ROS_IP=$IP_ADDRESS/" ~/.bash_profile
+fi
 
 echo "Network switched to $WIFI_NAME"
 echo "ROS_IP updated to $IP_ADDRESS"
