@@ -12,11 +12,7 @@ MASTER_IP=$1
 sed -i "s/export ROS_IP=.*/export ROS_IP=$(hostname -I | awk '{print $1}')/" ~/.bash_profile
 sed -i "s|export ROS_MASTER_URI=.*|export ROS_MASTER_URI='http://${MASTER_IP}:11311/'|" ~/.bash_profile
 
-# Source .bash_profile to get the updated variables
-source ~/.bash_profile
-
 COMMON_SETUP="
-source \${HOME}/.bashrc
 source ~/.bash_profile
 "
 

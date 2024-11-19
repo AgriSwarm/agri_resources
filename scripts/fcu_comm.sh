@@ -13,4 +13,4 @@ ip_address=$1
 gcs_url="udp://:14555@${ip_address}:14550"
 
 # launchファイルを起動
-roslaunch mavros apm.launch gcs_url:="$gcs_url"
+roslaunch hardware_utils fcu_comm.launch gcs_url:="$gcs_url"
