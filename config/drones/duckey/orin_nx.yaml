@@ -1,0 +1,63 @@
+%YAML:1.0
+---
+#inputs
+imu: 1
+imu_topic: "/mavros/imu/data_raw"
+image0_topic: "/camera/infra1/image_rect_raw"
+image1_topic: "/camera/infra2/image_rect_raw"
+
+is_compressed_images: 0
+
+imu_freq: 200
+image_freq: 15
+frame_step: 3
+
+#Camera configuration
+camera_configuration: 0  #STEREO_PINHOLE = 0, STEREO_FISHEYE = 1, PINHOLE_DEPTH = 2, FOURCORNER_FISHEYE = 3
+num_of_cam: 2
+
+imu_calib: "../../imu/kakute_h7_mini.yaml"
+image_width: 480
+image_height: 270
+
+base_T_imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [1.00000000, 0.00000000, 0.00000000, 0.00000000,
+      0.00000000, 1.00000000, 0.00000000, 0.00000000,
+      0.00000000, 0.00000000, 1.00000000, 0.00000000,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
+cam0_calib: "../../camera/d435_realsense/left_480x270.yaml"
+imu_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
+        0.99918217, -0.02431851, 0.03230467, 0.02117146,
+        0.02446328, 0.99969235, -0.00409378, 0.04328738,
+        0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
+cam1_calib: "../../camera/d435_realsense/right_480x270.yaml"
+imu_T_cam1: !!opencv-matrix
+    rows: 4
+    cols: 4
+    dt: d
+    data: [-0.03226768, 0.00496599, 0.99946693, 0.04557953,
+        0.99918751, -0.02399975, 0.03237790, 0.07096948,
+        0.02414774, 0.99969963, -0.00418754, 0.04445992,
+        0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
+depth_cam_calib: "../../camera/d435_realsense/right_480x270.yaml"
+imu_T_depth_cam: !!opencv-matrix
+    rows: 4
+    cols: 4
+    dt: d
+    data: [-0.03219517, 0.00488071, 0.99946968, 0.04700941,
+      0.99918217, -0.02431851, 0.03230467, 0.02117146,
+      0.02446328, 0.99969235, -0.00409378, 0.04328738,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
+d2slam: "../../d2slam/orin_nx.yaml"
+ego_planner: "../../ego_planner/fast.yaml"
