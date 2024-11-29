@@ -4,7 +4,7 @@ grid_map:
     frame_id: "world"
     enable_virtual_wall: 0
     pose_type: 2
-    odom_depth_timeout: 1.0
+    odom_depth_timeout: 3.0
     resolution: 0.2
     local_update_range_x: 15.5
     local_update_range_y: 15.5
