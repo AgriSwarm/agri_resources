@@ -16,21 +16,25 @@ COMMON_SETUP="
 source ~/.bash_profile
 "
 
-TERMINAL1_CMD="
-$COMMON_SETUP
-roslaunch agri_resources rviz.launch
-"
+# TERMINAL1_CMD="
+# $COMMON_SETUP
+# roslaunch agri_resources rviz.launch
+# "
+roslaunch agri_resources rviz.launch &
 
 TERMINAL2_CMD="
 $COMMON_SETUP
 rosrun hardware_utils cmd_cli.py
 "
 
-TERMINAL3_CMD="
-$COMMON_SETUP
-rosrun rqt_reconfigure rqt_reconfigure
-"
+# TERMINAL3_CMD="
+# $COMMON_SETUP
+# rosrun rqt_reconfigure rqt_reconfigure
+# "
+rosrun rqt_reconfigure rqt_reconfigure &
 
-gnome-terminal -- bash -c "$TERMINAL1_CMD; exec bash" &
-gnome-terminal -- bash -c "$TERMINAL2_CMD; exec bash" &
-gnome-terminal -- bash -c "$TERMINAL3_CMD; exec bash" &
+simplescreenrecorder &
+
+# gnome-terminal -- bash -c "$TERMINAL1_CMD; exec bash" &
+# gnome-terminal -- bash -c "$TERMINAL3_CMD; exec bash" &
+gnome-terminal -- bash -c "$TERMINAL2_CMD; exec bash"
