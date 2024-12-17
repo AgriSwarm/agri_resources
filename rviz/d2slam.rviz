@@ -5,11 +5,13 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /D2VINS1
         - /D2VINS1/MarginedCloud1/Autocompute Value Bounds1
-        - /DenseMapping1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
+        - /Planning1
+        - /Infra1
       Splitter Ratio: 0.46666666865348816
-    Tree Height: 865
+    Tree Height: 297
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -40,6 +42,7 @@ Panels:
         - /RemoteOdom1
         - /DenseMapping1/OccupancyMap1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
+        - /Infra1
       Splitter Ratio: 0.5
     Tree Height: 441
 Preferences:
@@ -77,40 +80,12 @@ Visualization Manager:
       Show Trail: false
       Value: false
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_link:
-          Value: true
-        base_link_frd:
-          Value: true
-        camera_depth_frame:
-          Value: true
-        camera_depth_optical_frame:
-          Value: true
-        camera_infra1_frame:
-          Value: true
-        camera_infra1_optical_frame:
-          Value: true
-        camera_infra2_frame:
-          Value: true
-        camera_infra2_optical_frame:
-          Value: true
-        camera_link:
-          Value: true
-        map:
-          Value: true
-        map_ned:
-          Value: true
-        odom:
-          Value: true
-        odom_ned:
-          Value: true
-        world:
-          Value: true
       Marker Alpha: 1
       Marker Scale: 0.20000000298023224
       Name: TF
@@ -118,28 +93,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          map_ned:
-            {}
-        odom:
-          odom_ned:
-            {}
-        world:
-          base_link:
-            base_link_frd:
-              {}
-            camera_infra1_frame:
-              camera_infra1_optical_frame:
-                {}
-            camera_link:
-              camera_depth_frame:
-                camera_depth_optical_frame:
-                  {}
-              camera_infra2_frame:
-                camera_infra2_optical_frame:
-                  {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -203,7 +159,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: RGB8
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -218,12 +174,12 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 5.77298641204834
-            Min Value: -5.290004730224609
+            Max Value: 1962.5535888671875
+            Min Value: -0.10155384987592697
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -263,7 +219,7 @@ Visualization Manager:
             {}
           Queue Size: 100
           Value: false
-        - Angle Tolerance: 0.10000000149011612
+        - Angle Tolerance: 0.0010000000474974513
           Class: rviz/Odometry
           Covariance:
             Orientation:
@@ -283,7 +239,7 @@ Visualization Manager:
           Enabled: false
           Keep: 1
           Name: Odometry
-          Position Tolerance: 0.10000000149011612
+          Position Tolerance: 0.0010000000474974513
           Queue Size: 10
           Shape:
             Alpha: 1
@@ -659,7 +615,7 @@ Visualization Manager:
           Color: 164; 0; 0
           Color Transformer: AxisColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -674,12 +630,12 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 1.5
-            Min Value: -0.30000001192092896
+            Max Value: 2.9000000953674316
+            Min Value: -0.10000000149011612
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -687,7 +643,7 @@ Visualization Manager:
           Color: 32; 74; 135
           Color Transformer: AxisColor
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -702,7 +658,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -822,13 +778,13 @@ Visualization Manager:
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
-          Enabled: false
+          Enabled: true
           Marker Topic: /ego_planner_node/goal_point
           Name: GoalPoint
           Namespaces:
             {}
           Queue Size: 100
-          Value: false
+          Value: true
         - Class: rviz/Marker
           Enabled: true
           Marker Topic: /ego_planner_node/init_list
@@ -846,12 +802,12 @@ Visualization Manager:
           Queue Size: 100
           Value: true
         - Class: jsk_rviz_plugin/BoundingBox
-          Enabled: true
+          Enabled: false
           Name: PlanningArea
           Queue Size: 10
           Topic: /ego_planner_node/grid_map/virtual_bound
           Unreliable: false
-          Value: true
+          Value: false
           alpha: 0.800000011920929
           color: 237; 212; 0
           coloring: Flat color
@@ -891,10 +847,10 @@ Visualization Manager:
           Use rainbow: true
           Value: true
         - Class: jsk_rviz_plugin/PieChart
-          Enabled: true
+          Enabled: false
           Name: Battery
           Topic: /mavros_bridge/battery
-          Value: true
+          Value: false
           auto color change: false
           background color: 0; 0; 0
           backround alpha: 0
@@ -915,11 +871,11 @@ Visualization Manager:
           top: 10
         - Buffer length: 100
           Class: jsk_rviz_plugin/Plotter2D
-          Enabled: true
+          Enabled: false
           Name: cpu_temp
           Show Value: true
           Topic: /hardware_bridge/cpu_temperature
-          Value: true
+          Value: false
           auto color change: false
           auto scale: true
           background color: 0; 0; 0
@@ -940,11 +896,11 @@ Visualization Manager:
           width: 80
         - Buffer length: 100
           Class: jsk_rviz_plugin/Plotter2D
-          Enabled: true
+          Enabled: false
           Name: gpu_temp
           Show Value: true
           Topic: /hardware_bridge/gpu_temperature
-          Value: true
+          Value: false
           auto color change: false
           auto scale: true
           background color: 0; 0; 0
@@ -965,11 +921,11 @@ Visualization Manager:
           width: 80
         - Buffer length: 100
           Class: jsk_rviz_plugin/Plotter2D
-          Enabled: true
+          Enabled: false
           Name: vins_delay
           Show Value: true
           Topic: /d2vins/delay
-          Value: true
+          Value: false
           auto color change: false
           auto scale: false
           background color: 0; 0; 0
@@ -990,11 +946,11 @@ Visualization Manager:
           width: 80
         - Buffer length: 100
           Class: jsk_rviz_plugin/Plotter2D
-          Enabled: true
+          Enabled: false
           Name: map_delay
           Show Value: true
           Topic: /ego_planner_node/grid_map/delay
-          Value: true
+          Value: false
           auto color change: false
           auto scale: false
           background color: 0; 0; 0
@@ -1014,14 +970,14 @@ Visualization Manager:
           update interval: 0.03999999910593033
           width: 80
         - Class: jsk_rviz_plugin/PictogramArray
-          Enabled: true
+          Enabled: false
           Name: StatusIcon
           Queue Size: 10
           Topic: /hardware_bridge/system_status_pict
           Unreliable: false
-          Value: true
+          Value: false
         - Class: rviz/Image
-          Enabled: false
+          Enabled: true
           Image Topic: /d2vins/featured_image
           Max Value: 1
           Median window: 5
@@ -1031,7 +987,7 @@ Visualization Manager:
           Queue Size: 2
           Transport Hint: raw
           Unreliable: false
-          Value: false
+          Value: true
         - Angle Tolerance: 0.0010000000474974513
           Class: rviz/Odometry
           Covariance:
@@ -1049,7 +1005,7 @@ Visualization Manager:
               Scale: 1
               Value: true
             Value: true
-          Enabled: true
+          Enabled: false
           Keep: 1
           Name: KF_Odometry
           Position Tolerance: 0.0010000000474974513
@@ -1066,7 +1022,7 @@ Visualization Manager:
             Value: Axes
           Topic: /mavros/local_position/odom
           Unreliable: false
-          Value: true
+          Value: false
       Enabled: true
       Name: Infra
     - Class: rviz/Group
@@ -1149,20 +1105,20 @@ Visualization Manager:
     Current:
       Class: jsk_rviz_plugin/TabletViewController
       Control Mode: Orbit
-      Distance: 5.473444938659668
+      Distance: 6.489268779754639
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Eye:
-        X: -2.381939172744751
-        Y: 2.4229776859283447
-        Z: 2.7365524768829346
+        X: -2.940723180770874
+        Y: 4.522415637969971
+        Z: 5.054731845855713
       Focus:
-        X: 1.1713800430297852
-        Y: -0.2663595676422119
-        Z: -0.4414958953857422
+        X: 0.295590877532959
+        Y: 0.9047913551330566
+        Z: 0.7477974891662598
       Invert Z Axis: false
       Maintain Vertical Axis: true
       Mouse Enabled: true
@@ -1177,76 +1133,16 @@ Visualization Manager:
         X: 0
         Y: 0
         Z: 1
-    Saved:
-      - Class: rviz/ThirdPersonFollower
-        Distance: 0.7654685378074646
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.05999999865889549
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Field of View: 0.7853981852531433
-        Focal Point:
-          X: 0
-          Y: 0
-          Z: 0
-        Focal Shape Fixed Size: true
-        Focal Shape Size: 0.05000000074505806
-        Invert Z Axis: false
-        Name: ThirdPersonFollower
-        Near Clip Distance: 0.009999999776482582
-        Pitch: 0.11039859801530838
-        Target Frame: imu
-        Yaw: 1.5803974866867065
-      - Class: rviz/ThirdPersonFollower
-        Distance: 6.670686721801758
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.05999999865889549
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Field of View: 0.7853981852531433
-        Focal Point:
-          X: -0.7646511793136597
-          Y: 0.21594727039337158
-          Z: 2.2082502841949463
-        Focal Shape Fixed Size: true
-        Focal Shape Size: 0.05000000074505806
-        Invert Z Axis: false
-        Name: ThirdPersonFollower
-        Near Clip Distance: 0.009999999776482582
-        Pitch: 0.06979605555534363
-        Target Frame: world
-        Yaw: 2.4084792137145996
-      - Class: rviz/ThirdPersonFollower
-        Distance: 3.9009206295013428
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.05999999865889549
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Field of View: 0.7853981852531433
-        Focal Point:
-          X: -0.06375165283679962
-          Y: 1.8504018783569336
-          Z: 2.399390697479248
-        Focal Shape Fixed Size: true
-        Focal Shape Size: 0.05000000074505806
-        Invert Z Axis: false
-        Name: ThirdPersonFollower
-        Near Clip Distance: 0.009999999776482582
-        Pitch: 0.7197961807250977
-        Target Frame: base_link
-        Yaw: 1.628475308418274
+    Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 752
   Hide Left Dock: true
   Hide Right Dock: false
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000002e40000039efc0200000013fb000000100044006900730070006c006100790073000000003d0000039e000000c900fffffffb0000001200530065006c0065006300740069006f006e0000000028000003990000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed0000017900000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200720061007700200049006d0061006700650000000028000000300000000000000000fb00000012007200610077005f0069006d0061006700650000000028000000f90000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650000000028000001d50000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0069006d0061006700650000000192000000d60000000000000000fb000000100044006900730070006c006100790073000000001400000531000000c900fffffffc000000280000011e0000000000fffffffa000000000100000002fb0000001200720061007700200049006d0061006700650000000000ffffffff0000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650100000000000002370000000000000000fb0000001000410052005f0069006d0061006700650100000373000000160000000000000000fb0000001200720061007700200069006d006100670065010000038f000000160000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0049006d0061006700650000000027000003420000000000000000fb0000000a0049006d0061006700650000000219000000ba0000001600fffffffb0000000a0049006d0061006700650000000219000000ba0000000000000000000000010000015f0000039efc0200000004fc000000160000019b0000000000fffffffa000000000100000002fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000a0049006d006100670065000000027d000000ad0000000000000000fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000039e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b2000000000000000000000002000005900000016ffc0100000008fb0000000a0049006d0061006700650000000000000005900000000000000000fb0000000a0049006d0061006700650100000000000004380000000000000000fb0000000a0049006d0061006700650100000000000004dd0000000000000000fb0000000a0049006d0061006700650100000000000006980000000000000000fb0000000a0049006d00610067006501000000000000059f0000000000000000fb0000000a0049006d0061006700650100000000000007380000000000000000fb0000000a0049006d0061006700650100000000000007380000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009a000000060fc0100000002fb0000000800540069006d00650000000000000009a00000041800fffffffb0000000800540069006d00650100000000000004500000000000000000000005900000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000021b00000166fc0200000011fb000000100044006900730070006c006100790073000000016d00000166000000c900fffffffb0000001200530065006c0065006300740069006f006e0000000028000003990000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed0000017900000185000000b0fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200720061007700200049006d0061006700650000000028000000300000000000000000fb00000012007200610077005f0069006d0061006700650000000028000000f90000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650000000028000001d50000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0069006d0061006700650000000192000000d60000000000000000fb000000100044006900730070006c00610079007300000002b900000122000000c900fffffffc000000280000011e0000000000fffffffa000000000100000002fb0000001200720061007700200049006d0061006700650000000000ffffffff0000000000000000fb0000001a0074007200610063006b0065006400200069006d0061006700650100000000000002370000000000000000fb0000001000410052005f0069006d0061006700650100000373000000160000000000000000fb0000001200720061007700200069006d006100670065010000038f000000160000000000000000fb00000020006c006f006f0070005f006d0061007400630068005f0049006d0061006700650000000027000003420000000000000000000000010000015f0000039efc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000039e000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000056a0000012afc010000000cfb0000000a0049006d00610067006501000000000000056a0000007600fffffffb0000000a0049006d00610067006501000000000000056a0000000000000000fb0000000a0049006d0061006700650100000000000006c40000000000000000fb0000000a0049006d0061006700650100000000000006c40000000000000000fb0000000a0049006d0061006700650000000000000005900000000000000000fb0000000a0049006d0061006700650100000000000004380000000000000000fb0000000a0049006d0061006700650100000000000004dd0000000000000000fb0000000a0049006d0061006700650100000000000006980000000000000000fb0000000a0049006d00610067006501000000000000059f0000000000000000fb0000000a0049006d0061006700650100000000000007380000000000000000fb0000000a0049006d0061006700650100000000000007380000000000000000fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009a000000060fc0100000002fb0000000800540069006d00650000000000000009a00000041800fffffffb0000000800540069006d006501000000000000045000000000000000000000056a0000016600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -1255,6 +1151,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1424
-  X: 496
-  Y: 27
+  Width: 1386
+  X: 376
+  Y: 211
