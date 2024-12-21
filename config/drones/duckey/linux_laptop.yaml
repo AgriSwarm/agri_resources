@@ -92,4 +92,4 @@ imu_T_depth_cam: !!opencv-matrix
       0.00000000, 0.00000000, 0.00000000, 1.00000000]
 
 d2slam: "../../d2slam/experiment.yaml"
-ego_planner: "../../ego_planner/fast.yaml"
+ego_planner: "../../ego_planner/experiment.yaml"
