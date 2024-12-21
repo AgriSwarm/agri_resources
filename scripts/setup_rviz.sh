@@ -18,10 +18,6 @@ COMMON_SETUP="
 source ~/.bash_profile
 "
 
-# TERMINAL1_CMD="
-# $COMMON_SETUP
-# roslaunch agri_resources rviz.launch
-# "
 roslaunch agri_resources rviz.launch &
 
 TERMINAL2_CMD="
@@ -29,10 +25,6 @@ $COMMON_SETUP
 rosrun hardware_utils cmd_cli.py
 "
 
-# TERMINAL3_CMD="
-# $COMMON_SETUP
-# rosrun rqt_reconfigure rqt_reconfigure
-# "
 rosrun rqt_reconfigure rqt_reconfigure &
 
 simplescreenrecorder &

@@ -1,0 +1,12 @@
+<launch>
+    <arg name="self_id"     default="9999"/>
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find agri_resources)/rviz/d2slam.rviz"/>
+    <param name="robot_description" textfile="$(find agri_resources)/urdf/drones/duckey.urdf" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="visualization_bridge" name="visualization_bridge_node" type="visualization_bridge_node" output="screen">
+    </node>
+    <include file="$(find d2comm)/launch/d2comm.launch" >
+        <arg name="self_id" value="$(arg self_id)" />
+        <arg name="output" value="log" />
+    </include>
+</launch>

@@ -1,0 +1,122 @@
+%YAML:1.0
+---
+#estimation
+estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_td: 0                      # online estimate time offset between camera and imu
+td: 0.001                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
+estimation_mode: 2 #0:single; 1:solve all; 2: distributed; 3:server
+double_counting_common_feature: 0
+min_inv_dep: 0.01 #100 meter away.
+min_measurements_per_keyframe: 10
+
+#optimization parameters
+max_solver_time: 0.04 # max solver itration time (ms), to guarantee real time
+max_num_iterations: 8   # max solver itrations, to guarantee real time
+consensus_max_steps: 1
+timout_wait_sync: 100
+rho_landmark: 1.0
+rho_frame_T: 100
+rho_frame_theta: 100
+relaxation_alpha: 0.
+consensus_sync_for_averaging: 0
+consensus_sync_to_start: 0 #Is sync on start of the solving..
+consensus_trigger_time_err_us: 100
+ceres_num_threads: 4
+freeze_disarm_pose: 0
+
+#depth fusing
+depth_far_thres: 3.0 # The max depth in frontend
+depth_near_thres: 0.3 
+fuse_dep: 0 #if fuse depth measurement
+max_depth_to_fuse: 5.0
+min_depth_to_fuse: 0.3
+
+#Multi-drone
+track_remote_netvlad_thres: 0.5
+
+#Initialization
+init_method: 0 #0 IMU, 1 PnP
+depth_estimate_baseline: 0.045
+
+#sliding window
+max_sld_win_size: 11
+landmark_estimate_tracks: 3 #when use depth or stereo, 3 is OK.
+min_solve_frames: 8
+
+#solver
+multiple_thread: 1
+
+#outlier rejection
+thres_outlier : 50.0
+perform_outlier_rejection_num: 50
+tri_max_err: 0.03
+
+#Marginalization
+enable_marginalization: 1
+margin_sparse_solver: 0
+always_fixed_first_pose: 0
+remove_base_when_margin_remote: 2
+
+#feature tracker parameters
+max_cnt: 200            # max feature number in feature tracking
+max_superpoint_cnt: 145 # max feature extraction by superpoint
+max_solve_cnt: 100
+show_track_id: 0
+check_essential: 0
+enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
+lk_use_fast: 1
+remote_min_match_num: 40
+enable_superglue_local: 0
+enable_superglue_remote: 0
+ransacReprojThreshold: 5.0
+parallex_thres: 0.012
+knn_match_ratio: 0.9 #This apply to superpoint feature track & loop clouse detection.
+feature_min_dist: 15
+enable_search_local_aera: true
+search_local_max_dist: 0.06
+
+#CNN
+cnn_use_onnx: 1
+enable_pca_superpoint: 1
+enable_pca_netvlad: 1
+superpoint_pca_dims: 64
+netvlad_pca_dims: 1024
+cnn_enable_tensorrt: 1
+cnn_enable_tensorrt_fp16: 1
+cnn_enable_tensorrt_int8: 1
+netvlad_int8_calib_table_name: "mobilenetvlad_calibration.flatbuffers"
+superpoint_int8_calib_table_name: "superpoint_calibration.flatbuffers"
+
+#Loop Closure Detection
+loop_detection_netvlad_thres: 0.8
+loop_detection_netvlad_thres_spy: 0.75
+enable_homography_test: 0
+loop_inlier_feature_num: 20
+accept_loop_max_yaw: 10
+accept_loop_max_pos: 1.0
+lazy_broadcast_keyframe: 0 #If enable coarse-to-fine initialization mode. This is useful when communication is not good.
+gravity_check_thres: 0.06
+
+#PGO
+pgo_mode: 1
+pgo_rho_frame_T: 0.7
+pgo_rho_frame_theta: 0.625
+pgo_eta_k: 0.1
+write_g2o: 0
+g2o_output_path: "output.g2o"
+write_pgo_to_file: 1
+enable_gravity_prior: 0
+gravity_sqrt_info: 10
+pgo_solver_time: 1.0
+solver_timer_freq: 1.0
+enable_pcm: 1
+pcm_thres: 2.8
+
+#outputs
+output_path: "/home/initial/swarm_log_latest"
+debug_print_sldwin: 0
+debug_print_states: 0
+enable_perf_output: 0
+debug_write_margin_matrix: 0
+print_network_status: 0
+verbose: 0
