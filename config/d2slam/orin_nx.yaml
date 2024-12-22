@@ -65,7 +65,7 @@ show_track_id: 0
 check_essential: 0
 enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
-remote_min_match_num: 40
+remote_min_match_num: 20
 enable_superglue_local: 0
 enable_superglue_remote: 0
 ransacReprojThreshold: 5.0
