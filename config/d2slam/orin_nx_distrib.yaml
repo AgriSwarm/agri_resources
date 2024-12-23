@@ -7,7 +7,7 @@ td: 0.001                             # initial value of time offset. unit: s. r
 estimation_mode: 2 #0:single; 1:solve all; 2: distributed; 3:server
 double_counting_common_feature: 0
 min_inv_dep: 0.01 #100 meter away.
-min_measurements_per_keyframe: 10
+min_measurements_per_keyframe: 20 #10
 
 #optimization parameters
 max_solver_time: 0.08 #0.04 # max solver itration time (ms), to guarantee real time
@@ -32,11 +32,11 @@ max_depth_to_fuse: 5.0
 min_depth_to_fuse: 0.3
 
 #Multi-drone
-track_remote_netvlad_thres: 0.8 #0.5
+track_remote_netvlad_thres: 0.5 #0.8
 
 #Initialization
 init_method: 0 #0 IMU, 1 PnP
-depth_estimate_baseline: 0.03 #0.045
+depth_estimate_baseline: 0.045 #0.03
 
 #sliding window
 max_sld_win_size: 11
@@ -47,9 +47,9 @@ min_solve_frames: 6 #8
 multiple_thread: 1
 
 #outlier rejection
-thres_outlier : 10.0 #50.0
-perform_outlier_rejection_num: 100 #50
-tri_max_err: 0.2 #0.03
+thres_outlier : 50.0 #10.0
+perform_outlier_rejection_num: 50 #100
+tri_max_err: 0.03 #0.2
 
 #Marginalization
 enable_marginalization: 1
@@ -65,15 +65,15 @@ show_track_id: 0
 check_essential: 1
 enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
-remote_min_match_num: 20
+remote_min_match_num: 40 #20
 enable_superglue_local: 0
 enable_superglue_remote: 0
-ransacReprojThreshold: 10.0 #5.0
+ransacReprojThreshold: 5.0 #10.0
 parallex_thres: 0.012
-knn_match_ratio: 0.8 #0.9 #This apply to superpoint feature track & loop clouse detection.
-feature_min_dist: 30 #15
+knn_match_ratio: 0.9 #0.8 #This apply to superpoint feature track & loop clouse detection.
+feature_min_dist: 15 #30
 enable_search_local_aera: true
-search_local_max_dist: 0.03 #0.06
+search_local_max_dist: 0.06 #0.03
 
 #CNN
 cnn_use_onnx: 1
@@ -88,14 +88,14 @@ netvlad_int8_calib_table_name: "mobilenetvlad_calibration.flatbuffers"
 superpoint_int8_calib_table_name: "superpoint_calibration.flatbuffers"
 
 #Loop Closure Detection
-loop_detection_netvlad_thres: 0.8
+loop_detection_netvlad_thres: 0.85
 loop_detection_netvlad_thres_spy: 0.75
 enable_homography_test: 0
-loop_inlier_feature_num: 50 #20
+loop_inlier_feature_num: 20 #50
 accept_loop_max_yaw: 10
 accept_loop_max_pos: 1.0
 lazy_broadcast_keyframe: 0 #If enable coarse-to-fine initialization mode. This is useful when communication is not good.
-gravity_check_thres: 0.03 #0.06
+gravity_check_thres: 0.06 #0.03
 
 #PGO
 pgo_mode: 1
