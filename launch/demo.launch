@@ -1,0 +1,30 @@
+<launch>
+    <arg name="self_id"     default="0"/>
+    <arg name="config" default="$(find agri_resources)/config/drones/duckey/linux_laptop.yaml" />
+    <arg name="init_x" default="0.0"/>
+    <arg name="init_y" default="2.0"/>
+    <arg name="init_z" default="0.0"/>
+    <arg name="init_yaw" default="1.00"/>
+
+    <include file="$(find d2vins)/launch/include/planner.xml">
+        <arg name="self_id" value="$(arg self_id)" />
+        <arg name="config" value="$(arg config)" />
+        <arg name="output" value="log" />
+    </include>
+
+    <node pkg="poscmd_2_odom" name="poscmd_2_odom" type="poscmd_2_odom" output="log">
+        <param name="init_x" value="$(arg init_x)"/>
+        <param name="init_y" value="$(arg init_y)"/>
+        <param name="init_z" value="$(arg init_z)"/>
+        <param name="init_yaw" value="$(arg init_yaw)"/>
+        <remap from="~command" to="/traj_server/fake_position_cmd"/>
+        <remap from="~odometry_1" to="/d2vins/odometry"/>
+        <remap from="~odometry_2" to="/mavros/local_position/odom"/>
+    </node>
+
+    <!-- <node pkg="hardware_utils" type="cmd_cli.py" name="cmd_cli" output="screen"/> -->
+
+    <param name="robot_description" textfile="$(find agri_resources)/urdf/drones/duckey.urdf" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="rvizvisualisation" pkg="rviz" type="rviz" output="log" args="-d $(find agri_resources)/rviz/mito_demo.rviz"/>
+</launch>
