@@ -4,7 +4,7 @@
 estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
 estimate_td: 0                      # online estimate time offset between camera and imu
 td: 0.001                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
-estimation_mode: 2 #0:single; 1:solve all; 2: distributed; 3:server
+estimation_mode: 0 #0:single; 1:solve all; 2: distributed; 3:server
 double_counting_common_feature: 0
 min_inv_dep: 0.01 #100 meter away.
 min_measurements_per_keyframe: 20 #10
@@ -98,7 +98,7 @@ lazy_broadcast_keyframe: 0 #If enable coarse-to-fine initialization mode. This i
 gravity_check_thres: 0.06 #0.03
 
 #PGO
-pgo_mode: 1
+pgo_mode: 0
 pgo_rho_frame_T: 0.84 #0.7
 pgo_rho_frame_theta: 0.25 #0.625
 pgo_eta_k: 0.1
