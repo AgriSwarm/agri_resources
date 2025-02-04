@@ -27,7 +27,7 @@ rosrun hardware_utils cmd_cli.py
 
 rosrun rqt_reconfigure rqt_reconfigure &
 
-simplescreenrecorder &
+# simplescreenrecorder &
 
 # gnome-terminal -- bash -c "$TERMINAL1_CMD; exec bash" &
 # gnome-terminal -- bash -c "$TERMINAL3_CMD; exec bash" &

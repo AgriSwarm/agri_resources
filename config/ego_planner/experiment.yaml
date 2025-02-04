@@ -69,6 +69,6 @@ optimization:
     obstacle_clearance: 0.1
     obstacle_clearance_soft: 0.5
     swarm_clearance: 0.15000000000000002
-    max_vel: 1.5
+    max_vel: 0.5
     max_acc: 6.0
     max_jer: 20.0
