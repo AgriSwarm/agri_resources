@@ -7,13 +7,13 @@ td: 0.001                             # initial value of time offset. unit: s. r
 estimation_mode: 2 #0:single; 1:solve all; 2: distributed; 3:server
 double_counting_common_feature: 0
 min_inv_dep: 0.01 #100 meter away.
-min_measurements_per_keyframe: 10
+min_measurements_per_keyframe: 20
 
 #optimization parameters
-max_solver_time: 0.04 # max solver itration time (ms), to guarantee real time
+max_solver_time: 0.08 # max solver itration time (ms), to guarantee real time
 max_num_iterations: 8   # max solver itrations, to guarantee real time
 consensus_max_steps: 1
-timout_wait_sync: 100
+timout_wait_sync: 50
 rho_landmark: 1.0
 rho_frame_T: 100
 rho_frame_theta: 100
@@ -41,7 +41,7 @@ depth_estimate_baseline: 0.045
 #sliding window
 max_sld_win_size: 11
 landmark_estimate_tracks: 3 #when use depth or stereo, 3 is OK.
-min_solve_frames: 8
+min_solve_frames: 6
 
 #solver
 multiple_thread: 1
@@ -58,11 +58,11 @@ always_fixed_first_pose: 0
 remove_base_when_margin_remote: 2
 
 #feature tracker parameters
-max_cnt: 200            # max feature number in feature tracking
-max_superpoint_cnt: 145 # max feature extraction by superpoint
-max_solve_cnt: 100
+max_cnt: 150            # max feature number in feature tracking
+max_superpoint_cnt: 99 # max feature extraction by superpoint
+max_solve_cnt: 200
 show_track_id: 0
-check_essential: 0
+check_essential: 1
 enable_lk_optical_flow: 1 #enable lk opticalflow featuretrack to enhance ego-motion estimation.
 lk_use_fast: 1
 remote_min_match_num: 20
