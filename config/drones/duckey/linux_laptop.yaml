@@ -91,5 +91,15 @@ imu_T_depth_cam: !!opencv-matrix
       -0.03041861, 0.99941156, 0.01585074, 0.02218413,
       0.00000000, 0.00000000, 0.00000000, 1.00000000]
 
+color_cam_calib: "../../camera/d435_realsense/color_640x480.yaml"
+imu_T_color_cam: !!opencv-matrix
+    rows: 4
+    cols: 4
+    dt: d
+    data: [0.00311489, -0.01576322, 0.99987090, 0.05055481,
+      0.99953239, 0.03046405, -0.00263356, 0.00247248,
+      -0.03041861, 0.99941156, 0.01585074, 0.02218413,
+      0.00000000, 0.00000000, 0.00000000, 1.00000000]
+
 d2slam: "../../d2slam/experiment.yaml"
 ego_planner: "../../ego_planner/experiment.yaml"

@@ -6,6 +6,14 @@
     <arg name="init_z" default="0.0"/>
     <arg name="init_yaw" default="1.00"/>
 
+    <arg name="depth_scaling_factor" default="0.001" />
+    <arg name="inverse_depth" default="false" />
+    <arg name="camera_coordinate" default="false" />
+    <arg name="identity_threshold" default="0.1" />
+    <arg name="tracking_distance" default="0.5" />
+    <arg name="lost_time_threshold" default="3.0" />
+    <arg name="world_frame_id" default="world" />
+
     <include file="$(find d2vins)/launch/include/planner.xml">
         <arg name="self_id" value="$(arg self_id)" />
         <arg name="config" value="$(arg config)" />
@@ -22,7 +30,22 @@
         <remap from="~odometry_2" to="/mavros/local_position/odom"/>
     </node>
 
-    <!-- <node pkg="hardware_utils" type="cmd_cli.py" name="cmd_cli" output="screen"/> -->
+    <node name="estimate_manager" pkg="pose_estimator" type="pose_estimator" output="log">
+        <param name="config_file" type="string" value="$(arg config)" />
+        <param name="depth_scaling_factor" type="double" value="$(arg depth_scaling_factor)" />
+        <param name="inverse_depth" type="bool" value="$(arg inverse_depth)" />
+        <param name="camera_coordinate" type="bool" value="$(arg camera_coordinate)" />
+        <param name="identity_threshold" type="double" value="$(arg identity_threshold)" />
+        <param name="tracking_distance" type="double" value="$(arg tracking_distance)" />
+        <param name="lost_time_threshold" type="double" value="$(arg lost_time_threshold)" />
+        <param name="world_frame_id" type="string" value="$(arg world_frame_id)" />
+        <remap from="depth" to="/camera/aligned_depth_to_color/image_raw" />
+        <remap from="flower_poses" to="pose_estimator/flower_poses"/>
+        <remap from="odom" to="/d2vins/odometry" />
+        <remap from="target_flower_pose" to="/traj_server/planning/track_pose" />
+    </node>
+
+    <node pkg="hardware_utils" type="cmd_cli.py" name="cmd_cli" output="screen"/>
 
     <param name="robot_description" textfile="$(find agri_resources)/urdf/drones/duckey.urdf" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
