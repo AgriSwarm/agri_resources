@@ -9,11 +9,10 @@ Panels:
         - /D2VINS1/MarginedCloud1/Autocompute Value Bounds1
         - /D2VINS1/SldWin1/Namespaces1
         - /D2VINS1/Odometry1/Shape1
-        - /DenseMapping1
         - /DenseMapping1/OccupancyMap1/Autocompute Value Bounds1
         - /GCS1/Polygon1
       Splitter Ratio: 0.46666666865348816
-    Tree Height: 439
+    Tree Height: 469
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -683,7 +682,7 @@ Visualization Manager:
           Queue Size: 10
           Selectable: true
           Size (Pixels): 10
-          Size (m): 0.20000000298023224
+          Size (m): 0.10000000149011612
           Style: Boxes
           Topic: /ego_planner_node/grid_map/occupancy
           Unreliable: false
@@ -693,8 +692,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 1.5
-            Min Value: -1.2999999523162842
+            Max Value: 1.649999976158142
+            Min Value: -1.9500000476837158
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -711,7 +710,7 @@ Visualization Manager:
           Queue Size: 10
           Selectable: true
           Size (Pixels): 3
-          Size (m): 0.20000000298023224
+          Size (m): 0.10000000149011612
           Style: Boxes
           Topic: /ego_planner_node/grid_map/occupancy_inflate
           Unreliable: false
@@ -1405,7 +1404,7 @@ Visualization Manager:
           Marker Topic: /cmd_gcs/flower_detection_spheres
           Name: FlowerDetectionSpheres
           Namespaces:
-            trigger_spheres: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -1442,7 +1441,7 @@ Visualization Manager:
           Marker Topic: /flower_poses_marker
           Name: FlowerPosesMarker
           Namespaces:
-            {}
+            flower_poses: true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -1450,7 +1449,7 @@ Visualization Manager:
           Marker Topic: /target_pose_marker
           Name: TargetPoseMarker
           Namespaces:
-            {}
+            flower_poses: true
           Queue Size: 100
           Value: true
       Enabled: true
@@ -1485,20 +1484,20 @@ Visualization Manager:
     Current:
       Class: jsk_rviz_plugin/TabletViewController
       Control Mode: Orbit
-      Distance: 2.9828712940216064
+      Distance: 3.686706781387329
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Eye:
-        X: -0.547622561454773
-        Y: -0.8518509864807129
-        Z: 0.16187849640846252
+        X: -0.653394341468811
+        Y: -1.723088264465332
+        Z: 0.44636738300323486
       Focus:
-        X: 1.789927363395691
-        Y: 0.9831979274749756
-        Z: -0.09498614072799683
+        X: 1.7904633283615112
+        Y: 0.9836587905883789
+        Z: -0.09482640027999878
       Invert Z Axis: false
       Maintain Vertical Axis: true
       Mouse Enabled: true
@@ -1548,7 +1547,7 @@ Window Geometry:
   Displays:
     collapsed: false
   Height: 1016
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: false
   Image:
     collapsed: false
