@@ -5,9 +5,9 @@ grid_map:
     enable_virtual_wall: 0
     pose_type: 2
     odom_depth_timeout: 1.0
-    resolution: 0.2
-    local_update_range_x: 15.5
-    local_update_range_y: 15.5
+    resolution: 0.1
+    local_update_range_x: 5.0
+    local_update_range_y: 5.0
     local_update_range_z: 2.0
     obstacles_inflation: 0.0
     virtual_ceil: 3.0
@@ -18,7 +18,7 @@ grid_map:
     virtual_wall_y_min: -5.0
     virtual_wall_y_max: 5.0
     virtual_wall_z_min: -0.1
-    virtual_wall_z_max: 3
+    virtual_wall_z_max: 2
     virtual_wall_margin: 0.1
     virtual_wall_yaw: 0.0
 
@@ -72,6 +72,6 @@ optimization:
     # max_vel: 1.5
     # max_acc: 6.0
     # max_jer: 20.0
-    max_vel: 0.15
+    max_vel: 0.5
     max_acc: 0.6
     max_jer: 2.0
